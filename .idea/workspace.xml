@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/odenkiapi/model/Card.py" afterPath="$PROJECT_DIR$/odenkiapi/model/Card.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/odenkiapi/model/Columns.py" afterPath="$PROJECT_DIR$/odenkiapi/model/Columns.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/odenkiapi/lib/util/Singleton.py" afterPath="$PROJECT_DIR$/odenkiapi/lib/util/Singleton.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/odenkiapi/lib/util/__init__.py" afterPath="$PROJECT_DIR$/odenkiapi/lib/util/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" name="Default" comment="" />
     <ignored path="odenkiapi.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370701295786" ignored="false" />
