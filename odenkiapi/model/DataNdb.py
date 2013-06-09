@@ -32,9 +32,11 @@ class Data(NdbModel):
             return data
 
     @classmethod
-    def create(cls, field, string):
+    def create(cls, field, string, allow_duplication=False):
         try:
             existing = cls.getByFieldAndString(field, string)
+            if allow_duplication:
+                raise EntityNotFound
             raise EntityExists("Data", {"field": field, "string": string})
         except EntityNotFound:
             data = Data()
@@ -143,18 +145,18 @@ class Data(NdbModel):
         return query
 
     @classmethod
-    def queryRange(cls, start, end):
-        assert isinstance(start, int)
-        assert isinstance(end, int)
+    def queryRange(cls, start_data_id, end_data_id):
+        assert isinstance(start_data_id, int)
+        assert isinstance(end_data_id, int)
         query = ndb.Query(kind="Data")
-        if start <= end:
-            query = query.filter(cls.dataId >= start)
-            query = query.filter(cls.dataId <= end)
+        if start_data_id <= end_data_id:
+            query = query.filter(cls.dataId >= start_data_id)
+            query = query.filter(cls.dataId <= end_data_id)
             return query
         else:
             query = query.order(-cls.dataId)
-            query = query.filter(cls.dataId <= start)
-            query = query.filter(cls.dataId >= end)
+            query = query.filter(cls.dataId <= start_data_id)
+            query = query.filter(cls.dataId >= end_data_id)
             return query
 
     def queryDuplication(self):
@@ -289,6 +291,8 @@ class _TestCase(unittest.TestCase):
         self.testbed.activate()
         self.testbed.init_datastore_v3_stub()
         self.testbed.init_memcache_stub()
+        keys = Data.query().fetch()
+        for k in keys: k.delete()
 
     def testSimplePutGetDelete(self):
         data = Data.prepare("field1", "string1")
@@ -324,7 +328,49 @@ class _TestCase(unittest.TestCase):
         self.assertRaises(EntityNotFound, lambda: Data.getByFieldAndString("field1", "string1"))
         self.assertRaises(EntityNotFound, lambda: Data.getByDataId(data_id))
 
+    def testDuplication(self):
+        d1 = Data.create("f3", "s3", allow_duplication=True)
+        self.assertRaises(EntityExists, lambda: Data.create("f3", "s3"))
+        d2 = Data.create("f3", "s3", allow_duplication=True)
+        self.assertTrue(d1.dataId != d2.dataId)
+        self.assertRaises(EntityDuplicated, lambda: Data.getByFieldAndString("f3", "s3"))
+
+    def testQueryByField(self):
+        Data.create("f4", "s4")
+        Data.create("f4", "s44")
+        Data.create("f4", "s444")
+        Data.create("f5", "s5")
+        keys = Data.fetchByField("f4")
+        self.assertEqual(len(keys), 3)
+        for key in keys:
+            self.assertIsInstance(key, ndb.Key)
+            self.assertIsInstance(key.get(), Data)
+
+        query = Data.queryByField("f4")
+        self.assertIsInstance(query, ndb.Query)
+        keys2 = query.fetch()
+        for key2 in keys2:
+            self.assertIsInstance(key, ndb.Key)
+            self.assertIsInstance(key.get(), Data)
+
+        query = Data.query(Data.field == "f4")
+        self.assertIsInstance(query, ndb.Query)
+        data_list = query.fetch()
+        self.assertEqual(len(data_list), 3)
+        for data in data_list:
+            self.assertIsInstance(data, Data)
+            self.assertEqual(data.field, "f4")
+
     def tearDown(self):
+        data_list = Data.query().fetch()
+        self.assertIsInstance(data_list, list)
+        for d in data_list:
+            if d is not None:
+                self.assertIsInstance(d, Data)
+                d.key.delete()
+
+        client = Client()
+        client.cas_reset()
         self.testbed.deactivate()
 
 
