@@ -93,13 +93,13 @@ class Data(NdbModel):
             raise EntityNotFound("Data", {"field": field, "string": string})
         return keys[0].get()
 
-    @classmethod
-    def querySingle(cls, data_id):
-        #warn("querySingle is deprecatd. Use getByDataId instead.", DeprecationWarning, 2)
-        raise PendingDeprecationWarning("querySingle is deprecatd. Use getByDataId instead.")
-        query = ndb.Query(kind="Data")
-        query = query.filter(Data.dataId == data_id)
-        return query
+    # @classmethod
+    # def querySingle(cls, data_id):
+    #     #warn("querySingle is deprecatd. Use getByDataId instead.", DeprecationWarning, 2)
+    #     raise PendingDeprecationWarning("querySingle is deprecatd. Use getByDataId instead.")
+    #     query = ndb.Query(kind="Data")
+    #     query = query.filter(Data.dataId == data_id)
+    #     return query
 
     def deleteEntity(self):
         client = Client()
@@ -111,12 +111,12 @@ class Data(NdbModel):
     def _getMemcacheKeyByDataId(cls, data_id):
         return "jkijwxpmuqzkldruoinjx" + unicode(data_id)
 
-    @classmethod
-    def queryByDataId(cls, data_id):
-        assert isinstance(data_id, int)
-        query = ndb.Query(kind="Data")
-        query = query.filter(cls.dataId == data_id)
-        return query
+    # @classmethod
+    # def queryByDataId(cls, data_id):
+    #     assert isinstance(data_id, int)
+    #     query = ndb.Query(kind="Data")
+    #     query = query.filter(cls.dataId == data_id)
+    #     return query
 
     @classmethod
     def getByDataId(cls, data_id):
