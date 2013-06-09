@@ -2,7 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/odenkiapi/model/DataNdb.py" afterPath="$PROJECT_DIR$/odenkiapi/model/DataNdb.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/odenkiapi/api/Data/DataId.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/odenkiapi/api/Data/DeleteUnused.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/odenkiapi/api/Data/DuplicationCheck.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/odenkiapi/api/Data/Field.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/odenkiapi/api/Data/FieldAndString.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/odenkiapi/api/Data/KeyId.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/odenkiapi/api/Data/Range.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/odenkiapi/api/Data/Recent.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/odenkiapi/api/Data/UrlMap.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/odenkiapi/api/Data/WsgiApplication.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/odenkiapi/api/Data/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/odenkiapi/api/Data/index.py" />
+      <change type="DELETED" beforePath="C:\Users\sasaki\Documents\GitHub\odenkiapi\odenkiapi\api\Data.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="odenkiapi.iws" />
@@ -12,12 +24,27 @@
     <file path="/Card.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370706968701" ignored="false" />
     <file path="/Columns.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370723760016" ignored="false" />
     <file path="/Singleton.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370724105972" ignored="false" />
-    <file path="/__init__.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370746735966" ignored="false" />
+    <file path="/__init__.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370771444841" ignored="false" />
     <file path="/MainModule.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370744523836" ignored="false" />
     <file path="/IsSomething.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370746546450" ignored="false" />
     <file path="/NdbModel.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370747250683" ignored="false" />
     <file path="/Data.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370753442662" ignored="false" />
     <file path="/DataNdb.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370764109155" ignored="false" />
+    <file path="/Recent.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370772038574" ignored="false" />
+    <file path="/mapper.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370766492555" ignored="false" />
+    <file path="/Range.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370772050872" ignored="false" />
+    <file path="/ByDataId.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370769127891" ignored="false" />
+    <file path="/ByKeyId.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370769266426" ignored="false" />
+    <file path="/ByField.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370768313111" ignored="false" />
+    <file path="/FieldAndString.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370772088167" ignored="false" />
+    <file path="/DuplicationCheck.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370772110070" ignored="false" />
+    <file path="/DeleteUnused.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370772120957" ignored="false" />
+    <file path="/Field.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370772101847" ignored="false" />
+    <file path="/index.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370771506429" ignored="false" />
+    <file path="/DataId.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370772133673" ignored="false" />
+    <file path="/KeyId.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370772078160" ignored="false" />
+    <file path="/WsgiApplication.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370772235441" ignored="false" />
+    <file path="/UrlMap.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370772306111" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,10 +78,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="NdbModel.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/odenkiapi/model/NdbModel.py">
+      <file leaf-file-name="Field.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/odenkiapi/api/Data/Field.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="19" selection-start="683" selection-end="683" vertical-scroll-proportion="0.0">
+            <state line="21" column="0" selection-start="728" selection-end="728" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#0#55#0" expanded="true" />
               </folding>
@@ -62,156 +89,86 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CsvMixin.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/odenkiapi/model/CsvMixin.py">
+      <file leaf-file-name="DuplicationCheck.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/odenkiapi/api/Data/DuplicationCheck.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="30" selection-start="112" selection-end="112" vertical-scroll-proportion="0.0">
+            <state line="32" column="0" selection-start="1380" selection-end="1380" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#0#55#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataNdb.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/odenkiapi/model/DataNdb.py">
+      <file leaf-file-name="DataId.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/odenkiapi/api/Data/DataId.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="193" column="0" selection-start="6885" selection-end="6885" vertical-scroll-proportion="-0.73350924">
+            <state line="24" column="0" selection-start="916" selection-end="916" vertical-scroll-proportion="0.53825855">
               <folding>
-                <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#0#55#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Data.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/odenkiapi/api/Data.py">
+      <file leaf-file-name="UrlMap.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/odenkiapi/api/Data/UrlMap.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="123" column="44" selection-start="4685" selection-end="4685" vertical-scroll-proportion="0.0">
+            <state line="1" column="0" selection-start="16" selection-end="16" vertical-scroll-proportion="0.0">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="model.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://C:/Program Files (x86)/Google/google_appengine/google/appengine/ext/ndb/model.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2714" column="0" selection-start="96585" selection-end="96585" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1364970580000" expanded="true" signature="91818:92196" placeholder="..." />
-                <marker date="1364970580000" expanded="true" signature="92012:92044" placeholder="..." />
-                <marker date="1364970580000" expanded="true" signature="92083:92136" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="case.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://C:/Python27/Lib/unittest/case.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="466" column="0" selection-start="16342" selection-end="16342" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="utils.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://C:/Program Files (x86)/Google/google_appengine/google/appengine/ext/ndb/utils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="134" column="0" selection-start="3621" selection-end="3621" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Data.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/odenkiapi/model/Data.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="191" column="0" selection-start="5316" selection-end="6094" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#23#78#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="__init__.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://C:/Program Files (x86)/Google/google_appengine/google/appengine/api/memcache/__init__.py">
+        <entry file="file://$PROJECT_DIR$/odenkiapi/api/Data/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="158" column="0" selection-start="4492" selection-end="4492" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Python/#C:/Users/sasaki/Documents/GitHub/odenkiapi/odenkiapi/model/Data.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="uml://Python/#C:/Users/sasaki/Documents/GitHub/odenkiapi/odenkiapi/model/Data.py">
-          <provider selected="true" editor-type-id="UmlEditorProvider">
-            <state>
-              <ID>Python</ID>
-              <OriginalElement>#C:/Users/sasaki/Documents/GitHub/odenkiapi/odenkiapi/model/Data.py</OriginalElement>
-              <nodes>
-                <node x="0.0" y="78.0">google.appengine.ext.db.PropertiedClass</node>
-                <node x="309.69444444444446" y="234.0">model.Data._TestCase</node>
-                <node x="383.875" y="78.0">_abcoll.Callable</node>
-                <node x="307.19444444444446" y="156.0">unittest.case.TestCase</node>
-                <node x="255.0" y="78.0">object</node>
-                <node x="285.2361111111111" y="0.0">_abcoll.Hashable</node>
-                <node x="101.5694444444444" y="156.0">google.appengine.ext.db.Model</node>
-                <node x="135.5694444444444" y="234.0">model.Data.Data</node>
-              </nodes>
-              <notes />
-              <edges>
-                <edge source="model.Data.Data" target="google.appengine.ext.db.Model">
-                  <point x="0.0" y="-14.0" />
-                  <point x="0.0" y="14.0" />
-                </edge>
-                <edge source="object" target="_abcoll.Hashable">
-                  <point x="0.0" y="-14.0" />
-                  <point x="287.5" y="53.0" />
-                  <point x="314.4861111111111" y="53.0" />
-                  <point x="-29.25" y="14.0" />
-                </edge>
-                <edge source="unittest.case.TestCase" target="_abcoll.Callable">
-                  <point x="50.0" y="-14.0" />
-                  <point x="432.19444444444446" y="131.0" />
-                  <point x="439.375" y="131.0" />
-                  <point x="0.0" y="14.0" />
-                </edge>
-                <edge source="unittest.case.TestCase" target="_abcoll.Hashable">
-                  <point x="0.0" y="-14.0" />
-                  <point x="382.19444444444446" y="131.0" />
-                  <point x="373.375" y="131.0" />
-                  <point x="29.249999999999993" y="14.0" />
-                </edge>
-                <edge source="unittest.case.TestCase" target="object">
-                  <point x="-50.0" y="-14.0" />
-                  <point x="332.19444444444446" y="131.0" />
-                  <point x="303.75" y="131.0" />
-                  <point x="16.25" y="14.0" />
-                </edge>
-                <edge source="model.Data._TestCase" target="unittest.case.TestCase">
-                  <point x="0.0" y="-14.0" />
-                  <point x="0.0" y="14.0" />
-                </edge>
-                <edge source="google.appengine.ext.db.Model" target="object">
-                  <point x="46.00000000000003" y="-14.0" />
-                  <point x="239.56944444444443" y="131.0" />
-                  <point x="271.25" y="131.0" />
-                  <point x="-16.25" y="14.0" />
-                </edge>
-                <edge source="google.appengine.ext.db.Model" target="google.appengine.ext.db.PropertiedClass">
-                  <point x="-45.99999999999997" y="-14.0" />
-                  <point x="147.56944444444443" y="131.0" />
-                  <point x="117.5" y="131.0" />
-                  <point x="0.0" y="14.0" />
-                </edge>
-              </edges>
-              <settings layout="Hierarchic Group" zoom="1.0" x="-271.5" y="-254.0" />
-              <SelectedNodes>
-                <node>google.appengine.ext.db.Model</node>
-              </SelectedNodes>
-              <Categories />
+      <file leaf-file-name="FieldAndString.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/odenkiapi/api/Data/FieldAndString.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="0" selection-start="882" selection-end="882" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#0#55#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Range.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/odenkiapi/api/Data/Range.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="37" column="0" selection-start="1216" selection-end="1216" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#0#55#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Recent.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/odenkiapi/api/Data/Recent.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="0" selection-start="1012" selection-end="1012" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#0#55#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="KeyId.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/odenkiapi/api/Data/KeyId.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="0" selection-start="672" selection-end="672" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#0#55#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -234,15 +191,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/odenkiapi/model/Columns.py" />
-        <option value="$PROJECT_DIR$/odenkiapi/lib/util/Singleton.py" />
-        <option value="$PROJECT_DIR$/odenkiapi/lib/util/MainModule.py" />
-        <option value="$PROJECT_DIR$/odenkiapi/lib/util/IsSomething.py" />
-        <option value="$PROJECT_DIR$/odenkiapi/lib/util/__init__.py" />
-        <option value="$PROJECT_DIR$/odenkiapi/model/Card.py" />
-        <option value="$PROJECT_DIR$/odenkiapi/model/NdbModel.py" />
-        <option value="$PROJECT_DIR$/odenkiapi/model/Data.py" />
-        <option value="$PROJECT_DIR$/odenkiapi/model/DataNdb.py" />
+        <option value="$PROJECT_DIR$/odenkiapi/api/Data/ByDataId.py" />
+        <option value="$PROJECT_DIR$/odenkiapi/api/Data/ByKeyId.py" />
+        <option value="$PROJECT_DIR$/odenkiapi/api/Data.py" />
+        <option value="$PROJECT_DIR$/odenkiapi/api/Data/index.py" />
+        <option value="$PROJECT_DIR$/odenkiapi/api/Data/mapper.py" />
+        <option value="$PROJECT_DIR$/odenkiapi/api/Data/Range.py" />
+        <option value="$PROJECT_DIR$/odenkiapi/api/Data/Recent.py" />
+        <option value="$PROJECT_DIR$/odenkiapi/api/Data/KeyId.py" />
+        <option value="$PROJECT_DIR$/odenkiapi/api/Data/FieldAndString.py" />
+        <option value="$PROJECT_DIR$/odenkiapi/api/Data/DuplicationCheck.py" />
+        <option value="$PROJECT_DIR$/odenkiapi/api/Data/DeleteUnused.py" />
+        <option value="$PROJECT_DIR$/odenkiapi/api/Data/DataId.py" />
+        <option value="$PROJECT_DIR$/odenkiapi/api/Data/WsgiApplication.py" />
+        <option value="$PROJECT_DIR$/odenkiapi/api/Data/UrlMap.py" />
+        <option value="$PROJECT_DIR$/odenkiapi/api/Data/Field.py" />
+        <option value="$PROJECT_DIR$/odenkiapi/api/Data/__init__.py" />
       </list>
     </option>
   </component>
@@ -325,7 +289,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
+              <option name="myItemId" value="api" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -343,7 +307,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Data" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -374,50 +342,7 @@
       <PyConsoleSettings />
     </option>
   </component>
-  <component name="RunManager" selected="Python.DataNdb">
-    <configuration default="false" name="__init__" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/odenkiapi/lib/util" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="odenkiapi" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/odenkiapi/lib/util/__init__.py" />
-      <option name="PARAMETERS" value="" />
-      <RunnerSettings RunnerId="PyDebugRunner" />
-      <RunnerSettings RunnerId="PythonCover" />
-      <ConfigurationWrapper RunnerId="PyDebugRunner" />
-      <ConfigurationWrapper RunnerId="PythonCover" />
-      <method />
-    </configuration>
-    <configuration default="false" name="Doctests in C:\Users\sasaki\Documents\GitHub\odenkiapi\odenkiapi\lib\util" type="tests" factoryName="Doctests" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/odenkiapi/lib/util" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="odenkiapi" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="$PROJECT_DIR$/odenkiapi/lib/util" />
-      <option name="TEST_TYPE" value="TEST_FOLDER" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <RunnerSettings RunnerId="PythonCover" />
-      <ConfigurationWrapper RunnerId="PythonCover" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.WsgiApplication">
     <configuration default="false" name="NdbModel" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -479,6 +404,44 @@
       <RunnerSettings RunnerId="PythonCover" />
       <ConfigurationWrapper RunnerId="PyDebugRunner" />
       <ConfigurationWrapper RunnerId="PythonCover" />
+      <method />
+    </configuration>
+    <configuration default="false" name="index" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/odenkiapi/api/Data" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="odenkiapi" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/odenkiapi/api/Data/index.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="WsgiApplication" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/odenkiapi/api/Data" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="odenkiapi" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/odenkiapi/api/Data/WsgiApplication.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="py.test">
@@ -611,19 +574,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Python.Columns" />
-      <item index="1" class="java.lang.String" itemvalue="Python.__init__" />
-      <item index="2" class="java.lang.String" itemvalue="Python tests.Doctests in C:\Users\sasaki\Documents\GitHub\odenkiapi\odenkiapi\lib\util" />
-      <item index="3" class="java.lang.String" itemvalue="Python.NdbModel" />
-      <item index="4" class="java.lang.String" itemvalue="Python.DataNdb" />
-      <item index="5" class="java.lang.String" itemvalue="Python.Data" />
+      <item index="1" class="java.lang.String" itemvalue="Python.NdbModel" />
+      <item index="2" class="java.lang.String" itemvalue="Python.DataNdb" />
+      <item index="3" class="java.lang.String" itemvalue="Python.Data" />
+      <item index="4" class="java.lang.String" itemvalue="Python.index" />
+      <item index="5" class="java.lang.String" itemvalue="Python.WsgiApplication" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.DataNdb" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Data" />
-        <item index="2" class="java.lang.String" itemvalue="Python.NdbModel" />
-        <item index="3" class="java.lang.String" itemvalue="Python.__init__" />
-        <item index="4" class="java.lang.String" itemvalue="Python tests.Doctests in C:\Users\sasaki\Documents\GitHub\odenkiapi\odenkiapi\lib\util" />
+        <item index="0" class="java.lang.String" itemvalue="Python.WsgiApplication" />
+        <item index="1" class="java.lang.String" itemvalue="Python.index" />
+        <item index="2" class="java.lang.String" itemvalue="Python.DataNdb" />
+        <item index="3" class="java.lang.String" itemvalue="Python.Data" />
+        <item index="4" class="java.lang.String" itemvalue="Python.NdbModel" />
       </list>
     </recent_temporary>
   </component>
@@ -737,6 +700,93 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/odenkiapi/api/Data/Recent.py</url>
+          <line>29</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/odenkiapi/api/Data/Range.py</url>
+          <line>37</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/odenkiapi/api/Data/KeyId.py</url>
+          <line>19</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/odenkiapi/api/Data/FieldAndString.py</url>
+          <line>24</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/odenkiapi/api/Data/Field.py</url>
+          <line>21</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/odenkiapi/api/Data/DuplicationCheck.py</url>
+          <line>32</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/odenkiapi/api/Data/DeleteUnused.py</url>
+          <line>28</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/odenkiapi/api/Data/DataId.py</url>
+          <line>23</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/odenkiapi/api/Data/index.py</url>
+          <line>18</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/odenkiapi/api/Data/index.py</url>
+          <line>16</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/odenkiapi/api/Data/index.py</url>
+          <line>14</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/odenkiapi/api/Data/index.py</url>
+          <line>12</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/odenkiapi/api/Data/index.py</url>
+          <line>10</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/odenkiapi/api/Data/index.py</url>
+          <line>8</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/odenkiapi/api/Data/index.py</url>
+          <line>6</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/odenkiapi/api/Data/index.py</url>
+          <line>4</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/odenkiapi/api/Data/index.py</url>
+          <line>2</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
@@ -747,83 +797,10 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="15" />
+      <option name="time" value="34" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/odenkiapi/lib/util/IsSomething.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="52" selection-start="2049" selection-end="2049" vertical-scroll-proportion="-40.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/odenkiapi/lib/util/Singleton.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="8" selection-start="663" selection-end="663" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#568#583#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/odenkiapi/lib/util/MainModule.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#267#282#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/odenkiapi/lib/util/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="196" selection-end="196" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#55#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/odenkiapi/model/Card.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="70" selection-end="70" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/odenkiapi/model/NdbModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="19" selection-start="683" selection-end="683" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#55#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/odenkiapi/model/CsvMixin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="30" selection-start="112" selection-end="112" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/odenkiapi/model/Columns.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="130" column="62" selection-start="4645" selection-end="4645" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Program Files (x86)/Google/google_appengine/google/appengine/api/memcache/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="158" column="0" selection-start="4492" selection-end="4492" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/odenkiapi/model/Data.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="191" column="0" selection-start="5316" selection-end="6094" vertical-scroll-proportion="0.0">
@@ -833,113 +810,118 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Program Files (x86)/Google/google_appengine/google/appengine/ext/ndb/utils.py">
+    <entry file="file://$PROJECT_DIR$/odenkiapi/model/Metadata.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="0" selection-start="3621" selection-end="3621" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27/Lib/unittest/case.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="466" column="0" selection-start="16342" selection-end="16342" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://Python/#C:/Users/sasaki/Documents/GitHub/odenkiapi/odenkiapi/model/Data.py">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>Python</ID>
-          <OriginalElement>#C:/Users/sasaki/Documents/GitHub/odenkiapi/odenkiapi/model/Data.py</OriginalElement>
-          <nodes>
-            <node x="0.0" y="78.0">google.appengine.ext.db.PropertiedClass</node>
-            <node x="309.69444444444446" y="234.0">model.Data._TestCase</node>
-            <node x="383.875" y="78.0">_abcoll.Callable</node>
-            <node x="307.19444444444446" y="156.0">unittest.case.TestCase</node>
-            <node x="255.0" y="78.0">object</node>
-            <node x="285.2361111111111" y="0.0">_abcoll.Hashable</node>
-            <node x="101.5694444444444" y="156.0">google.appengine.ext.db.Model</node>
-            <node x="135.5694444444444" y="234.0">model.Data.Data</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="model.Data.Data" target="google.appengine.ext.db.Model">
-              <point x="0.0" y="-14.0" />
-              <point x="0.0" y="14.0" />
-            </edge>
-            <edge source="object" target="_abcoll.Hashable">
-              <point x="0.0" y="-14.0" />
-              <point x="287.5" y="53.0" />
-              <point x="314.4861111111111" y="53.0" />
-              <point x="-29.25" y="14.0" />
-            </edge>
-            <edge source="unittest.case.TestCase" target="_abcoll.Callable">
-              <point x="50.0" y="-14.0" />
-              <point x="432.19444444444446" y="131.0" />
-              <point x="439.375" y="131.0" />
-              <point x="0.0" y="14.0" />
-            </edge>
-            <edge source="unittest.case.TestCase" target="_abcoll.Hashable">
-              <point x="0.0" y="-14.0" />
-              <point x="382.19444444444446" y="131.0" />
-              <point x="373.375" y="131.0" />
-              <point x="29.249999999999993" y="14.0" />
-            </edge>
-            <edge source="unittest.case.TestCase" target="object">
-              <point x="-50.0" y="-14.0" />
-              <point x="332.19444444444446" y="131.0" />
-              <point x="303.75" y="131.0" />
-              <point x="16.25" y="14.0" />
-            </edge>
-            <edge source="model.Data._TestCase" target="unittest.case.TestCase">
-              <point x="0.0" y="-14.0" />
-              <point x="0.0" y="14.0" />
-            </edge>
-            <edge source="google.appengine.ext.db.Model" target="object">
-              <point x="46.00000000000003" y="-14.0" />
-              <point x="239.56944444444443" y="131.0" />
-              <point x="271.25" y="131.0" />
-              <point x="-16.25" y="14.0" />
-            </edge>
-            <edge source="google.appengine.ext.db.Model" target="google.appengine.ext.db.PropertiedClass">
-              <point x="-45.99999999999997" y="-14.0" />
-              <point x="147.56944444444443" y="131.0" />
-              <point x="117.5" y="131.0" />
-              <point x="0.0" y="14.0" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="1.0" x="-271.5" y="-254.0" />
-          <SelectedNodes>
-            <node>google.appengine.ext.db.Model</node>
-          </SelectedNodes>
-          <Categories />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Program Files (x86)/Google/google_appengine/google/appengine/ext/ndb/model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2714" column="0" selection-start="96585" selection-end="96585" vertical-scroll-proportion="0.0">
+        <state line="5" column="29" selection-start="219" selection-end="219" vertical-scroll-proportion="0.0">
           <folding>
-            <marker date="1364970580000" expanded="true" signature="91818:92196" placeholder="..." />
-            <marker date="1364970580000" expanded="true" signature="92012:92044" placeholder="..." />
-            <marker date="1364970580000" expanded="true" signature="92083:92136" placeholder="..." />
+            <element signature="e#0#55#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/odenkiapi/api/Data.py">
+    <entry file="file://$PROJECT_DIR$/odenkiapi/api/Card.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="44" selection-start="4685" selection-end="4685" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/odenkiapi/model/DataNdb.py">
+    <entry file="file://$PROJECT_DIR$/odenkiapi/api/Data/index.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="193" column="0" selection-start="6885" selection-end="6885" vertical-scroll-proportion="-0.73350924">
+        <state line="21" column="0" selection-start="483" selection-end="483" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/odenkiapi/api/Data/WsgiApplication.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="27" selection-end="27" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/odenkiapi/api/Data/DeleteUnused.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="0" selection-start="1045" selection-end="1045" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/odenkiapi/api/Data/DuplicationCheck.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="0" selection-start="1380" selection-end="1380" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/odenkiapi/api/Data/Field.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="0" selection-start="728" selection-end="728" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/odenkiapi/api/Data/FieldAndString.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="0" selection-start="882" selection-end="882" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/odenkiapi/api/Data/KeyId.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="0" selection-start="672" selection-end="672" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/odenkiapi/api/Data/Range.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="0" selection-start="1216" selection-end="1216" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/odenkiapi/api/Data/Recent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="0" selection-start="1012" selection-end="1012" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/odenkiapi/api/Data/UrlMap.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="16" selection-end="16" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/odenkiapi/api/Data/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/odenkiapi/api/Data/DataId.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="0" selection-start="916" selection-end="916" vertical-scroll-proportion="0.53825855">
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
           </folding>
         </state>
       </provider>
