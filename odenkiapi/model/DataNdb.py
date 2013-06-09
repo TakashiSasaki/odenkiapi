@@ -238,19 +238,28 @@ def getCanonicalData(key):
     assert isinstance(key, ndb.Key)
     MEMCACHE_KEY = "akafkljacuiudrt2po8vxdzskj" + str(key)
     client = Client()
-    canonical_data_key = client.get(MEMCACHE_KEY)
-    if canonical_data_key: return canonical_data_key
+    cached_canonical_key = client.get(MEMCACHE_KEY)
+    if cached_canonical_key:
+        assert (isinstance(cached_canonical_key, ndb.Key))
+        return cached_canonical_key
+
     data = key.get()
     if data is None: return None
     assert isinstance(data, Data)
-    query = data.queryDuplication()
-    canonical_data_key = query.get(keys_only=True)
-    assert isinstance(canonical_data_key, ndb.Key)
-    assert data.dataId >= canonical_data_key.get().dataId
-    assert data.field == canonical_data_key.get().field
-    assert data.string == canonical_data_key.get().string
-    client.set(MEMCACHE_KEY, canonical_data_key)
-    return canonical_data_key
+
+    keys = Data.query().filter(Data.field == data.field).filter(Data.string == data.string).order(Data.dataId).fetch(
+        keys_only=True)
+    assert (len(keys) > 0)
+    #query = data.queryDuplication()
+    #canonical_data_key = query.get(keys_only=True)
+    canonical_key = keys[0]
+    canonical_data = canonical_key.get()
+    #assert isinstance(canonical_data_key, ndb.Key)
+    assert data.dataId >= canonical_data.dataId
+    assert data.field == canonical_data.field
+    assert data.string == canonical_data.string
+    client.set(MEMCACHE_KEY, canonical_key)
+    return canonical_key
 
 
 def getCanonicalDataList(key_list):
@@ -334,6 +343,12 @@ class _TestCase(unittest.TestCase):
         d2 = Data.create("f3", "s3", allow_duplication=True)
         self.assertTrue(d1.dataId != d2.dataId)
         self.assertRaises(EntityDuplicated, lambda: Data.getByFieldAndString("f3", "s3"))
+
+        k3 = getCanonicalData(d2.key)
+        k4 = getCanonicalData(d1.key)
+        self.assertEqual(k3, k4)
+        k5 = getCanonicalData(d2.key)
+        self.assertEqual(k3, k5)
 
     def testQueryByField(self):
         Data.create("f4", "s4")
