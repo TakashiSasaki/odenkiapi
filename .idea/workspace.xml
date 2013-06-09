@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/odenkiapi/lib/util/Singleton.py" afterPath="$PROJECT_DIR$/odenkiapi/lib/util/Singleton.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/odenkiapi/lib/util/IsSomething.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/odenkiapi/lib/util/MainModule.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/odenkiapi/lib/util/__init__.py" afterPath="$PROJECT_DIR$/odenkiapi/lib/util/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="odenkiapi.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -11,7 +14,8 @@
     <file path="/Card.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370706968701" ignored="false" />
     <file path="/Columns.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370723760016" ignored="false" />
     <file path="/Singleton.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370724105972" ignored="false" />
-    <file path="/__init__.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370724245239" ignored="false" />
+    <file path="/__init__.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370744600969" ignored="false" />
+    <file path="/MainModule.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370744523836" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +24,9 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/odenkiapi$MainModule.coverage" NAME="MainModule Coverage Results" MODIFIED="1370744632329" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/odenkiapi/lib/util" />
     <SUITE FILE_PATH="coverage/odenkiapi$Singleton.coverage" NAME="Singleton Coverage Results" MODIFIED="1370723548645" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/odenkiapi/lib/util" />
-    <SUITE FILE_PATH="coverage/odenkiapi$Columns.coverage" NAME="Columns Coverage Results" MODIFIED="1370743900030" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/odenkiapi/model" />
+    <SUITE FILE_PATH="coverage/odenkiapi$Columns.coverage" NAME="Columns Coverage Results" MODIFIED="1370744151760" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/odenkiapi/model" />
   </component>
   <component name="CoverageOptionsProvider">
     <option name="myAddOrReplace" value="1" />
@@ -59,16 +64,16 @@
       <file leaf-file-name="Columns.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/odenkiapi/model/Columns.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="133" column="19" selection-start="4693" selection-end="4693" vertical-scroll-proportion="0.0">
+            <state line="104" column="16" selection-start="3895" selection-end="3895" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Singleton.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Singleton.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/odenkiapi/lib/util/Singleton.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="42" selection-start="995" selection-end="995" vertical-scroll-proportion="0.70050126">
+            <state line="29" column="12" selection-start="766" selection-end="766" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#568#583#0" expanded="true" />
               </folding>
@@ -79,9 +84,27 @@
       <file leaf-file-name="__init__.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/odenkiapi/lib/util/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="0" selection-start="735" selection-end="735" vertical-scroll-proportion="0.0">
+            <state line="9" column="0" selection-start="232" selection-end="232" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IsSomething.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/odenkiapi/lib/util/IsSomething.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="0" selection-start="329" selection-end="329" vertical-scroll-proportion="0.20961775">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainModule.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/odenkiapi/lib/util/MainModule.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="0" selection-start="544" selection-end="544" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="e#0#55#0" expanded="true" />
+                <element signature="e#267#282#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -116,8 +139,10 @@
       <list>
         <option value="$PROJECT_DIR$/odenkiapi/model/Card.py" />
         <option value="$PROJECT_DIR$/odenkiapi/model/Columns.py" />
-        <option value="$PROJECT_DIR$/odenkiapi/lib/util/__init__.py" />
         <option value="$PROJECT_DIR$/odenkiapi/lib/util/Singleton.py" />
+        <option value="$PROJECT_DIR$/odenkiapi/lib/util/MainModule.py" />
+        <option value="$PROJECT_DIR$/odenkiapi/lib/util/__init__.py" />
+        <option value="$PROJECT_DIR$/odenkiapi/lib/util/IsSomething.py" />
       </list>
     </option>
   </component>
@@ -271,7 +296,7 @@
       <PyConsoleSettings />
     </option>
   </component>
-  <component name="RunManager" selected="Python.Columns">
+  <component name="RunManager" selected="Python.MainModule">
     <configuration default="false" name="Singleton" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -286,6 +311,27 @@
       <module name="odenkiapi" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/odenkiapi/lib/util/Singleton.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
+      <RunnerSettings RunnerId="PythonCover" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PythonCover" />
+      <method />
+    </configuration>
+    <configuration default="false" name="MainModule" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/odenkiapi/lib/util" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="odenkiapi" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/odenkiapi/lib/util/MainModule.py" />
       <option name="PARAMETERS" value="" />
       <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonCover" />
@@ -421,13 +467,15 @@
       <ConfigurationWrapper RunnerId="PythonCover" />
       <method />
     </configuration>
-    <list size="2">
-      <item index="0" class="java.lang.String" itemvalue="Python.Singleton" />
-      <item index="1" class="java.lang.String" itemvalue="Python.Columns" />
+    <list size="3">
+      <item index="0" class="java.lang.String" itemvalue="Python.Columns" />
+      <item index="1" class="java.lang.String" itemvalue="Python.Singleton" />
+      <item index="2" class="java.lang.String" itemvalue="Python.MainModule" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Python.Singleton" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Python.MainModule" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Singleton" />
       </list>
     </recent_temporary>
   </component>
@@ -460,15 +508,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="197" y="17" width="1660" height="1377" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Coverage" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.329602" sideWeight="0.6936791" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.329602" sideWeight="0.6936791" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29104477" sideWeight="0.6936791" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39967507" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29104477" sideWeight="0.6936791" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39951378" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3063209" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -595,9 +643,7 @@
     <entry file="file://$PROJECT_DIR$/odenkiapi/lib/util/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="25" column="0" selection-start="735" selection-end="735" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#55#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -629,28 +675,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/odenkiapi/lib/util/Singleton.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="12" selection-start="766" selection-end="766" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#568#583#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/odenkiapi/model/Columns.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="19" selection-start="4693" selection-end="4693" vertical-scroll-proportion="0.0">
+        <state line="104" column="16" selection-start="3895" selection-end="3895" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/odenkiapi/lib/util/MainModule.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="0" selection-start="544" selection-end="544" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#267#282#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/odenkiapi/lib/util/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="0" selection-start="735" selection-end="735" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#55#0" expanded="true" />
-          </folding>
+        <state line="9" column="0" selection-start="232" selection-end="232" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/odenkiapi/lib/util/Singleton.py">
+    <entry file="file://$PROJECT_DIR$/odenkiapi/lib/util/IsSomething.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="42" selection-start="995" selection-end="995" vertical-scroll-proportion="0.70050126">
-          <folding>
-            <element signature="e#568#583#0" expanded="true" />
-          </folding>
+        <state line="10" column="0" selection-start="329" selection-end="329" vertical-scroll-proportion="0.20961775">
+          <folding />
         </state>
       </provider>
     </entry>
