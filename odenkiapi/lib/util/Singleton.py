@@ -15,7 +15,8 @@ class Singleton(type):
         return self._instance
 
 
-import unittest, logging
+import unittest
+import logging
 
 
 class _TestSingleton():
@@ -24,7 +25,6 @@ class _TestSingleton():
 
 
 class _TestCase(unittest.TestCase):
-
     def setUp(self):
         logging.debug("setUp")
         pass
