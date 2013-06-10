@@ -1,4 +1,6 @@
 from __future__ import unicode_literals, print_function
+from google.appengine.ext import webapp
+#import  webapp2
 from lib.gae import JsonRpcDispatcher
 from lib.json import JsonRpcRequest, JsonRpcResponse, JsonRpcError
 from model.DataNdb import Data
@@ -20,9 +22,12 @@ class DataId(JsonRpcDispatcher):
         jresponse.addResult(data)
         jresponse.setExtraValue("key_id", data.key.id())
 
-map = ("/api/Data/dataId/[0-9]+", DataId)
+
+
+map =[("/api/Data/dataId/[0-9]+", DataId)]
 import UrlMap
 UrlMap.UrlMap.append(map)
+
 
 import unittest
 class _TestCase(unittest.TestCase):
@@ -32,8 +37,7 @@ class _TestCase(unittest.TestCase):
         import google.appengine.ext.webapp
         #from lib.gae import run_wsgi_app
         #app = run_wsgi_app(UrlMap.UrlMap)
-        from google.appengine.ext import webapp
-        app = webapp.WSGIApplication([map], debug=True)
+        app = webapp.WSGIApplication(map, debug=True)
         self.testapp = webtest.TestApp(app)
         from google.appengine.ext import testbed
         self.testbed = testbed.Testbed()
@@ -41,11 +45,12 @@ class _TestCase(unittest.TestCase):
         self.testbed.init_datastore_v3_stub()
         self.testbed.init_memcache_stub()
 
+
     def test(self):
         d = Data.prepare("f1", "s1")
         data_id = d.dataId
         self.assertEqual(data_id, 1)
-        response = self.testapp.get(b"/api/Data/dataId/%s" % data_id)
+        response = self.testapp.get("/api/Data/dataId/%s" % data_id)
         print (response)
 
     def tearDown(self):
