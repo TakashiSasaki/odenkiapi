@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/odenkiapi/api/Data/Hello.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/odenkiapi/api/Data/DataId.py" afterPath="$PROJECT_DIR$/odenkiapi/api/Data/DataId.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/odenkiapi/api/Data/Hello.py" afterPath="$PROJECT_DIR$/odenkiapi/api/Data/Hello.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/odenkiapi/lib/gae/JsonRpcDispatcher.py" afterPath="$PROJECT_DIR$/odenkiapi/lib/gae/JsonRpcDispatcher.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/odenkiapi/lib/json/JsonRpcRequest.py" afterPath="$PROJECT_DIR$/odenkiapi/lib/json/JsonRpcRequest.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="odenkiapi.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370833726957" ignored="false" />
+    <file path="/Dummy.txt" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370942955186" ignored="false" />
     <file path="/start_script.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370707047653" ignored="false" />
     <file path="/Card.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370706968701" ignored="false" />
     <file path="/Columns.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370723760016" ignored="false" />
@@ -34,7 +35,11 @@
     <file path="/KeyId.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370772078160" ignored="false" />
     <file path="/WsgiApplication.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370772235441" ignored="false" />
     <file path="/UrlMap.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370772306111" ignored="false" />
-    <file path="/Hello.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370837580233" ignored="false" />
+    <file path="/Hello.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370951531073" ignored="false" />
+    <file path="$USER_HOME$/PycharmProjects/SelfRewritingScript/SelfRewritingScript.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370866615615" ignored="false" />
+    <file path="/SelfRewritingScript.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370864351143" ignored="false" />
+    <file path="/JsonRpcDispatcher.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370944769844" ignored="false" />
+    <file path="/JsonRpcRequest.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370945724183" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,56 +78,27 @@
         <entry file="file://$PROJECT_DIR$/odenkiapi/api/Data/DataId.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="3" column="0" selection-start="113" selection-end="150" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#0#55#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Hello.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Hello.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/odenkiapi/api/Data/Hello.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="27" selection-start="76" selection-end="90" vertical-scroll-proportion="0.0">
+            <state line="42" column="29" selection-start="1252" selection-end="1252" vertical-scroll-proportion="0.6969206">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JsonRpcResponse.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/odenkiapi/lib/json/JsonRpcResponse.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="84" column="0" selection-start="2886" selection-end="2886" vertical-scroll-proportion="-7.88">
               <folding>
-                <element signature="e#0#15#0" expanded="true" />
+                <element signature="e#23#78#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pydevd.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1123" column="0" selection-start="46950" selection-end="46950" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://C:/Python27/Lib/unittest/main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="228" column="0" selection-start="8879" selection-end="8879" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="case.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://C:/Python27/Lib/unittest/case.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="326" column="0" selection-start="10801" selection-end="10801" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="suite.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://C:/Python27/Lib/unittest/suite.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="115" column="0" selection-start="3497" selection-end="3497" vertical-scroll-proportion="0.0">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -130,16 +106,36 @@
       <file leaf-file-name="JsonRpcDispatcher.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/odenkiapi/lib/gae/JsonRpcDispatcher.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="33" selection-start="671" selection-end="685" vertical-scroll-proportion="0.0">
+            <state line="119" column="0" selection-start="4500" selection-end="4500" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="webapp2.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="settings.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/odenkiapi/api/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="54" column="0" selection-start="1823" selection-end="2078" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JsonRpcRequest.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/odenkiapi/lib/json/JsonRpcRequest.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="36" column="17" selection-start="1417" selection-end="1417" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#0#55#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="webapp2.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://C:/Program Files (x86)/Google/google_appengine/lib/webapp2-2.3/webapp2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="467" column="6" selection-start="15927" selection-end="15927" vertical-scroll-proportion="-0.18157895">
+            <state line="479" column="0" selection-start="16226" selection-end="16226" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -148,7 +144,16 @@
       <file leaf-file-name="_webapp25.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://C:/Program Files (x86)/Google/google_appengine/google/appengine/ext/webapp/_webapp25.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="690" column="0" selection-start="20764" selection-end="20764" vertical-scroll-proportion="0.0">
+            <state line="713" column="0" selection-start="21294" selection-end="21294" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lint.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://C:/Python27/Lib/site-packages/webtest-1.4.3-py2.7.egg/webtest/lint.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="178" column="0" selection-start="5433" selection-end="5433" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -181,8 +186,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/odenkiapi/api/Data/ByKeyId.py" />
-        <option value="$PROJECT_DIR$/odenkiapi/api/Data.py" />
         <option value="$PROJECT_DIR$/odenkiapi/api/Data/index.py" />
         <option value="$PROJECT_DIR$/odenkiapi/api/Data/mapper.py" />
         <option value="$PROJECT_DIR$/odenkiapi/api/Data/Range.py" />
@@ -196,15 +199,17 @@
         <option value="$PROJECT_DIR$/odenkiapi/api/Data/Field.py" />
         <option value="$PROJECT_DIR$/odenkiapi/api/Data/__init__.py" />
         <option value="$PROJECT_DIR$/odenkiapi/api/Data/DataId.py" />
+        <option value="$PROJECT_DIR$/odenkiapi/lib/json/JsonRpcRequest.py" />
+        <option value="$PROJECT_DIR$/odenkiapi/lib/gae/JsonRpcDispatcher.py" />
         <option value="$PROJECT_DIR$/odenkiapi/api/Data/Hello.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-4" />
-    <option name="y" value="-4" />
-    <option name="width" value="2568" />
-    <option name="height" value="1448" />
+    <option name="x" value="304" />
+    <option name="y" value="171" />
+    <option name="width" value="1900" />
+    <option name="height" value="1209" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -273,6 +278,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -387,7 +393,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -396,7 +401,7 @@
     <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="editor.preferences.appearance" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="last_opened_file_path" value="C:/Program Files (x86)/Google/google_appengine/google/appengine/ext/webapp/_webapp25.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FullScreen" value="false" />
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -690,16 +695,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="2568" height="1448" extended-state="6" />
+    <frame x="304" y="171" width="1900" height="1209" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21065183" sideWeight="0.6015326" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32833022" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18759936" sideWeight="0.6015326" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39846742" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19155844" sideWeight="0.6022514" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3977486" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28965518" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -707,7 +712,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32872504" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21065183" sideWeight="0.6015326" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -860,8 +865,28 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/odenkiapi/lib/gae/JsonRpcDispatcher.py</url>
-          <line>22</line>
-          <option name="timeStamp" value="44" />
+          <line>23</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://C:/Program Files (x86)/Google/google_appengine/lib/webapp2-2.3/webapp2.py</url>
+          <line>502</line>
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://C:/Program Files (x86)/Google/google_appengine/lib/webapp2-2.3/webapp2.py</url>
+          <line>513</line>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/odenkiapi/lib/json/JsonRpcRequest.py</url>
+          <line>24</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/odenkiapi/lib/json/JsonRpcRequest.py</url>
+          <line>36</line>
+          <option name="timeStamp" value="59" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -874,57 +899,18 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="46" />
+      <option name="time" value="62" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/odenkiapi/gaesessions/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="471" column="0" selection-start="19883" selection-end="19883" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Program Files (x86)/Google/google_appengine/google/appengine/ext/webapp/util.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="98" column="0" selection-start="2949" selection-end="2949" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Program Files (x86)/Google/google_appengine/google/appengine/ext/ndb/tasklets.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1001" column="0" selection-start="31554" selection-end="31554" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/odenkiapi/api/Data/WsgiApplication.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="307" selection-end="307" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="13" column="0" selection-start="307" selection-end="307" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/odenkiapi/lib/gae/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="59" selection-start="784" selection-end="799" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/webtest-1.4.3-py2.7.egg/webtest/lint.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="184" column="0" selection-start="5671" selection-end="5671" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Program Files (x86)/Google/google_appengine/google/appengine/ext/webapp/_webapp25.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="690" column="0" selection-start="20764" selection-end="20764" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="16" column="59" selection-start="784" selection-end="799" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://C:/Python27/Lib/unittest/suite.py">
@@ -965,31 +951,66 @@
     <entry file="file://$PROJECT_DIR$/odenkiapi/api/Data/DataId.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="0" selection-start="113" selection-end="150" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#55#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/odenkiapi/api/Data/Hello.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="27" selection-start="76" selection-end="90" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/odenkiapi/lib/gae/JsonRpcDispatcher.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="33" selection-start="671" selection-end="685" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://C:/Program Files (x86)/Google/google_appengine/lib/webapp2-2.3/webapp2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="467" column="6" selection-start="15927" selection-end="15927" vertical-scroll-proportion="-0.18157895">
+        <state line="479" column="0" selection-start="16226" selection-end="16226" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/webtest-1.4.3-py2.7.egg/webtest/lint.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="178" column="0" selection-start="5433" selection-end="5433" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files (x86)/Google/google_appengine/google/appengine/ext/webapp/_webapp25.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="713" column="0" selection-start="21294" selection-end="21294" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/odenkiapi/api/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="0" selection-start="1823" selection-end="2078" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/odenkiapi/lib/json/JsonRpcRequest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="17" selection-start="1417" selection-end="1417" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/odenkiapi/lib/json/JsonRpcResponse.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="0" selection-start="2886" selection-end="2886" vertical-scroll-proportion="-7.88">
+          <folding>
+            <element signature="e#23#78#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/odenkiapi/lib/gae/JsonRpcDispatcher.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="119" column="0" selection-start="4500" selection-end="4500" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/odenkiapi/api/Data/Hello.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="29" selection-start="1252" selection-end="1252" vertical-scroll-proportion="0.6969206">
           <folding />
         </state>
       </provider>

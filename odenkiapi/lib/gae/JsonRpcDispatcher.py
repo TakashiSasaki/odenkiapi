@@ -19,8 +19,9 @@ class JsonRpcDispatcher(RequestHandler):
     """JsonRpcDispatcher invokes corresponding methods according to given method parameter"""
     __slot__ = ["methodList", "jsonRpc"]
     
-    def __init__(self, request, response):
-        RequestHandler.__init__(self, request, response)
+    def __init__(self, *inputs, **kw):
+        super(JsonRpcDispatcher, self).__init__(*inputs, **kw)
+        #RequestHandler.__init__(self, request, response)
         self._initMethodList()
 
     def _initMethodList(self):
@@ -72,10 +73,10 @@ class JsonRpcDispatcher(RequestHandler):
             print_exception(etype, value, tb)
             json_rpc_response.setError(e.code, e.message, e.data, e.__class__.__name__)
 
-        if self._inAdminMode():
-            if json_rpc_response.hasRedirectTarget():
-                json_rpc_response["redirect"] = json_rpc_response.getRedirectTarget()
-                json_rpc_response.delRedirectTarget()
+        # if self._inAdminMode():
+        #     if json_rpc_response.hasRedirectTarget():
+        #         json_rpc_response["redirect"] = json_rpc_response.getRedirectTarget()
+        #         json_rpc_response.delRedirectTarget()
 
         return json_rpc_response
     
@@ -252,8 +253,8 @@ class JsonRpcDispatcher(RequestHandler):
         current_session = get_current_session()
         current_session["inAdminMode"] = true_or_false
     
-    def _inAdminMode(self):
-        current_session = get_current_session()
-        return current_session.get("inAdminMode")
+    # def _inAdminMode(self):
+    #     current_session = get_current_session()
+    #     return current_session.get("inAdminMode")
 
          

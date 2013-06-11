@@ -19,10 +19,11 @@ class JsonRpcRequest(object):
     'param' key in JSON-RPC request object.
     See http://www.simple-is-better.org/json-rpc/jsonrpc20-over-http.html
     """
-    __slots__ = ["jsonrpc", "method", "id", "params", "extra", "error", "pathInfo", "request", "url", "remoteAddr", "fromAdminHost"]
+    __slots__ = ["jsonrpc", "method", "id", "params", "extra", "error", "pathInfo", "request", "url", "remoteAddr"]
 
     def __init__(self, request):
-        assert isinstance(request, Request)
+        #assert isinstance(request, Request)
+        #removed because request may not google.appengine.ext.webapp.Request in unit test environment.
         self.error = None
         self.method = None
         self.params = []
@@ -33,7 +34,7 @@ class JsonRpcRequest(object):
         self.url = request.url
         self.remoteAddr = request.remote_addr
         self.request = request
-        self.fromAdminHost = False if re.match(DEBUG_IP_ADDRESS_REGEX, request.remote_addr) is None else True
+        #self.fromAdminHost = False if re.match(DEBUG_IP_ADDRESS_REGEX, request.remote_addr) is None else True
 
         # methods are listed in http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html
         # default JSON-RPC method is identical to HTTP method and it should be overridden
