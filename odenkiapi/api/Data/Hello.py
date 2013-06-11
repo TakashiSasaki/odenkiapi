@@ -38,7 +38,6 @@ class _TestCase(unittest.TestCase):
     def testHello2(self):
         response = self.testapp.get("/hello2")
         import simplejson
-
         j = simplejson.loads(response.body)
         self.assertIsNotNone(j["id"])
         self.assertEqual(j["result"]["message"], "hello2")

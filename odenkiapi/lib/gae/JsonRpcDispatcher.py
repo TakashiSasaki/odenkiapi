@@ -65,7 +65,8 @@ class JsonRpcDispatcher(RequestHandler):
         json_rpc_response = JsonRpcResponse(json_rpc_request.getId())
         try:
             x = self.methodList[method_name](self, json_rpc_request, json_rpc_response)
-            if x: warn("dispatched method need not return an object of JsonRpcResponse.")
+            if x:
+                warn("dispatched method need not return an object of JsonRpcResponse.")
         except JsonRpcException, e:
             from sys import exc_info
             (etype, value, tb) = exc_info()
@@ -140,7 +141,10 @@ class JsonRpcDispatcher(RequestHandler):
             debug("JSON RPC response with error.")
             #assert  json_rpc_response.getResult() is None
             self.response.content_type = "application/json"
-            self.response.status = JsonRpcDispatcher._getHttpStatusFromJsonRpcError(json_rpc_response.getErrorCode()) 
+            json_rpc_error_code = json_rpc_response.getErrorCode()
+            http_status_code =  JsonRpcDispatcher._getHttpStatusFromJsonRpcError(json_rpc_error_code)
+            self.response.set_status(http_status_code)
+            json_string = dumps(json_rpc_response)
             self.response.out.write(dumps(json_rpc_response))
             return
         
