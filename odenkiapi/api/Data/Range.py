@@ -34,8 +34,7 @@ class _Range(JsonRpcDispatcher):
             self.response.out.write("keys = %s" % keys)
             return
 
-import UrlMap
-UrlMap.UrlMap.append(("/api/Data/[0-9]+/[0-9]+", _Range))
+map = ("/api/Data/[0-9]+/[0-9]+", _Range)
 
 if __name__ == "__main__":
     import unittest

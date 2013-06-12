@@ -7,6 +7,7 @@ from lib.json.JsonRpcError import JsonRpcException
 from model.CsvMixin import CsvMixin
 from lib.DataTableMixin import DataTableMixin
 from gaesessions import get_current_session
+import logging
 _logging.getLogger().setLevel(_logging.DEBUG)
 from google.appengine.ext.webapp import RequestHandler, Response
 from StringIO import StringIO
@@ -66,7 +67,7 @@ class JsonRpcDispatcher(RequestHandler):
         try:
             x = self.methodList[method_name](self, json_rpc_request, json_rpc_response)
             if x:
-                warn("dispatched method need not return an object of JsonRpcResponse.")
+                logging.debug ("dispatched method need not return an object of JsonRpcResponse.")
         except JsonRpcException, e:
             from sys import exc_info
             (etype, value, tb) = exc_info()

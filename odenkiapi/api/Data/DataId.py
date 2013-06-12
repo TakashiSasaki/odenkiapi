@@ -28,10 +28,7 @@ class DataId(JsonRpcDispatcher):
         jresponse.setExtraValue("key_id", data.key.id())
 
 
-map = [("/api/Data/dataId/[0-9]+", DataId)]
-import UrlMap
-
-UrlMap.UrlMap.append(map)
+map = ("/api/Data/dataId/[0-9]+", DataId)
 
 import unittest
 
@@ -42,7 +39,7 @@ class _TestCase(unittest.TestCase):
         #app = webapp2.WSGIApplication([map])
         #from lib.gae import run_wsgi_app
         #app = run_wsgi_app(UrlMap.UrlMap)
-        app = webapp.WSGIApplication(map, debug=True)
+        app = webapp.WSGIApplication([map], debug=True)
         self.testapp = webtest.TestApp(app)
         from google.appengine.ext import testbed
 
