@@ -2,6 +2,7 @@
 from __future__ import unicode_literals, print_function
 from warnings import warn
 from JsonRpcError import JsonRpcError
+from google.appengine.ext import webapp
 
 class JsonRpcResponse(dict):
     """Each JSON-RPC method should return JsonRpcResponse object.
@@ -9,11 +10,13 @@ class JsonRpcResponse(dict):
     without any other assumptions. 
     """
     
-    __slots__ = ["_redirectTarget", "_columns"]
+    __slots__ = ["_redirectTarget", "_columns", "response"]
     
-    def __init__(self, request_id):
+    def __init__(self, request_id, response):
+        assert isinstance(response, webapp.Response)
         dict.__init__(self)
         self["id"] = request_id
+        self.response= response
         #self.requestHandler = request_handler
         #self.request = request_handler.request
         #self.response = request_handler.response

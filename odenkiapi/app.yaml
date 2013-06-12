@@ -37,6 +37,9 @@ handlers:
 - url: /image
   static_dir: image
 
+- url: /api/Relays/.*
+  script: api/Relays.py
+
 - url: /favicon.ico
   static_files: image/odenki.png
   upload: image/odenki.png

@@ -63,7 +63,7 @@ class JsonRpcDispatcher(RequestHandler):
     
     def _invokeMethod(self, method_name, json_rpc_request):
         assert isinstance(json_rpc_request, JsonRpcRequest)
-        json_rpc_response = JsonRpcResponse(json_rpc_request.getId())
+        json_rpc_response = JsonRpcResponse(json_rpc_request.getId(), self.response)
         try:
             x = self.methodList[method_name](self, json_rpc_request, json_rpc_response)
             if x:

@@ -1,10 +1,27 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals, print_function
-import simplejson
+import json as simplejson
 from google.appengine.ext import webapp
-#import  webapp2
 from lib.gae import JsonRpcDispatcher
 from lib.json import JsonRpcRequest, JsonRpcResponse
 from model.Hems import Relays, isoToNative
+
+
+class _Index(webapp.RequestHandler):
+    def get(self):
+        html = """
+<html>
+<head><title>Relays</title></head><body>
+<form method="POST">
+    <p>productName<input type="text" name="productName"/></p>
+    <p>serialNumber<input type="text" name="serialNumber"/></p>
+    <p>moduleId<input type="text" name="moduleId" /></p>
+    <p>relayId<input type="text" name="relayId" /></p>
+    <p>scheduledDateTime<input type="text" name="scheduledDateTime" /></p>
+    <p>expectedState<input type="text" name="expectedState" /></p>
+</form>
+</body></html>"""
+        self.response.out.write(html)
 
 
 class _Relays(JsonRpcDispatcher):
@@ -28,6 +45,9 @@ class _Relays(JsonRpcDispatcher):
         product_name = jrequest.getPathInfo(3)
         serial_number = jrequest.getPathInfo(4)
         module_id = jrequest.getPathInfo(5)
+        self.response.headers.add_header(b"Set-Cookie", b"productName=%s" % product_name.encode())
+        self.response.headers.add_header(b"Set-Cookie", b"serialNumber=%s" % serial_number.encode())
+        self.response.headers.add_header(b"Set-Cookie", b"moduleId=%s" % module_id.encode())
 
         relays = Relays(product_name, serial_number, module_id)
         assert isinstance(relays, Relays)
@@ -69,7 +89,8 @@ class _Hello(webapp.RequestHandler):
         _Hello.headers = self.request.headers
 
 
-map = ("/api/Relays/[0-9a-zA-Z_]+/[0-9a-zA-Z_]+/[0-9a-zA-Z_]+", _Relays)
+maps = [("/api/Relays/[0-9a-zA-Z_]+/[0-9a-zA-Z_]+/[0-9a-zA-Z_]+", _Relays),
+        ("/api/Relays/", _Index)]
 
 import unittest
 import datetime
@@ -79,7 +100,8 @@ class _TestCase(unittest.TestCase):
     def setUp(self):
         import webtest
 
-        app = webapp.WSGIApplication([map, ("/hello", _Hello)], debug=True)
+        maps.append(("/hello", _Hello))
+        app = webapp.WSGIApplication(maps, debug=True)
         self.testapp = webtest.TestApp(app)
         from google.appengine.ext import testbed
 
@@ -161,6 +183,15 @@ class _TestCase(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    import unittest
+    import os
 
-    unittest.main()
+    if os.environ.get("APPENGINE_RUNTIME"):
+        from google.appengine.ext.webapp.util import run_wsgi_app
+        from google.appengine.ext.webapp import WSGIApplication
+
+        wsgi_application = WSGIApplication(maps, debug=True)
+        run_wsgi_app(wsgi_application)
+    else:
+        import unittest
+
+        unittest.main()
