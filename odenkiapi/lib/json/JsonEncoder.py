@@ -1,13 +1,16 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals, print_function
 from json import JSONEncoder as _JSONEncoder
-from gaesessions import Session
-from gdata.gauth import OAuthHmacToken
-from datetime import datetime 
+from datetime import datetime
+from logging import debug
+
 from google.appengine.ext import ndb
 from google.appengine.ext import db
-from logging import debug
+
+from gaesessions import Session
+from gdata.gauth import OAuthHmacToken
 from model.Columns import Columns
+
 
 class JSONEncoder(_JSONEncoder):
     def default(self, o):
@@ -28,11 +31,13 @@ class JSONEncoder(_JSONEncoder):
             debug("encoding db.Key %s to JSON" % o)
             return unicode(o)
         if isinstance(o, ndb.Model):
-            return o.to_dict()
             debug("encoding NdbModel %s to JSON" % o)
+            return o.to_dict()
         if isinstance(o, Columns):
             assert isinstance(o, Columns)
             debug("encoding Columns %s to JSON" % o)
             return o.getDataTableCols()
+            # if isinstance(o, dict):
+        #     return o
         debug("encoding unknown object %s, %s " % (type(o), o))
         return _JSONEncoder.default(self, o)
