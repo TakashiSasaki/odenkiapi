@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/odenkiapi/model/Hems.py" afterPath="$PROJECT_DIR$/odenkiapi/model/Hems.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/odenkiapi/lib/json/JsonRpcRequest.py" afterPath="$PROJECT_DIR$/odenkiapi/lib/json/JsonRpcRequest.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/odenkiapi/api/Relays.py" afterPath="$PROJECT_DIR$/odenkiapi/api/Relays.py" />
     </list>
@@ -38,11 +37,11 @@
     <file path="$USER_HOME$/PycharmProjects/SelfRewritingScript/SelfRewritingScript.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370866615615" ignored="false" />
     <file path="/SelfRewritingScript.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1370864351143" ignored="false" />
     <file path="/JsonRpcDispatcher.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1371020666353" ignored="false" />
-    <file path="/JsonRpcRequest.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1371050131165" ignored="false" />
+    <file path="/JsonRpcRequest.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1371052521594" ignored="false" />
     <file path="/postTest.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1371025588858" ignored="false" />
     <file path="/sstTest.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1371027655060" ignored="false" />
     <file path="/Hems.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1371052094920" ignored="false" />
-    <file path="/Relays.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1371051876703" ignored="false" />
+    <file path="/Relays.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1371053131013" ignored="false" />
     <file path="/JsonEncoder.py" changelist="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" time="1371042397642" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,6 +54,7 @@
     <SUITE FILE_PATH="coverage/odenkiapi$Doctests_in_C__Users_sasaki_Documents_GitHub_odenkiapi_odenkiapi_lib_util.coverage" NAME="Doctests in C:\Users\sasaki\Documents\GitHub\odenkiapi\odenkiapi\lib\util Coverage Results" MODIFIED="1370746672539" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/odenkiapi/lib/util" />
     <SUITE FILE_PATH="coverage/odenkiapi$Hello.coverage" NAME="Hello Coverage Results" MODIFIED="1370951788125" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/odenkiapi/api/Data" />
     <SUITE FILE_PATH="coverage/odenkiapi$Field.coverage" NAME="Field Coverage Results" MODIFIED="1370962651446" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/odenkiapi/api/Data" />
+    <SUITE FILE_PATH="coverage/odenkiapi$Relays.coverage" NAME="Relays Coverage Results" MODIFIED="1371053176406" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/odenkiapi/api" />
     <SUITE FILE_PATH="coverage/odenkiapi$Singleton.coverage" NAME="Singleton Coverage Results" MODIFIED="1370746634321" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/odenkiapi/lib/util" />
     <SUITE FILE_PATH="coverage/odenkiapi$DataId.coverage" NAME="DataId Coverage Results" MODIFIED="1371050185698" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/odenkiapi/api/Data" />
     <SUITE FILE_PATH="coverage/odenkiapi$IsSomething.coverage" NAME="IsSomething Coverage Results" MODIFIED="1370746617977" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/odenkiapi/lib/util" />
@@ -117,7 +117,7 @@
           <file leaf-file-name="Hems.py" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/odenkiapi/model/Hems.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="77" column="34" selection-start="2626" selection-end="2626" vertical-scroll-proportion="0.0">
+                <state line="78" column="0" selection-start="2627" selection-end="2627" vertical-scroll-proportion="0.0">
                   <folding>
                     <element signature="e#23#78#0" expanded="true" />
                   </folding>
@@ -128,7 +128,7 @@
           <file leaf-file-name="Relays.py" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/odenkiapi/api/Relays.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="89" column="0" selection-start="3347" selection-end="3347" vertical-scroll-proportion="0.8810365">
+                <state line="110" column="48" selection-start="4678" selection-end="4678" vertical-scroll-proportion="1.6704901">
                   <folding>
                     <element signature="e#0#55#0" expanded="true" />
                   </folding>
@@ -148,7 +148,7 @@
           <file leaf-file-name="_webapp25.py" pinned="false" current="false" current-in-tab="false">
             <entry file="file://C:/Program Files (x86)/Google/google_appengine/google/appengine/ext/webapp/_webapp25.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="728" column="0" selection-start="21756" selection-end="21756" vertical-scroll-proportion="0.0">
+                <state line="737" column="33" selection-start="21966" selection-end="21966" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -207,19 +207,19 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="JsonRpcDispatcher.py" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="JsonRpcDispatcher.py" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/odenkiapi/lib/gae/JsonRpcDispatcher.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="67" column="0" selection-start="2191" selection-end="2191" vertical-scroll-proportion="0.3325359">
+                <state line="90" column="0" selection-start="3169" selection-end="3169" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="JsonRpcRequest.py" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="JsonRpcRequest.py" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/odenkiapi/lib/json/JsonRpcRequest.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="35" column="22" selection-start="1232" selection-end="1232" vertical-scroll-proportion="0.0">
+                <state line="137" column="0" selection-start="5442" selection-end="5442" vertical-scroll-proportion="0.4074074">
                   <folding>
                     <element signature="e#0#55#0" expanded="true" />
                   </folding>
@@ -260,9 +260,9 @@
         <option value="$PROJECT_DIR$/odenkiapi/sstTest.py" />
         <option value="$PROJECT_DIR$/odenkiapi/postTest.py" />
         <option value="$PROJECT_DIR$/odenkiapi/lib/json/JsonEncoder.py" />
+        <option value="$PROJECT_DIR$/odenkiapi/model/Hems.py" />
         <option value="$PROJECT_DIR$/odenkiapi/lib/json/JsonRpcRequest.py" />
         <option value="$PROJECT_DIR$/odenkiapi/api/Relays.py" />
-        <option value="$PROJECT_DIR$/odenkiapi/model/Hems.py" />
       </list>
     </option>
   </component>
@@ -588,7 +588,9 @@
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/odenkiapi/api/Relays.py" />
       <option name="PARAMETERS" value="" />
       <RunnerSettings RunnerId="PyDebugRunner" />
+      <RunnerSettings RunnerId="PythonCover" />
       <ConfigurationWrapper RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PythonCover" />
       <method />
     </configuration>
     <configuration default="false" name="DataId" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -824,17 +826,17 @@
     <frame x="-2" y="0" width="2568" height="1448" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1546105" sideWeight="0.6697318" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1546105" sideWeight="0.7639847" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32796934" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1418919" sideWeight="0.6697318" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3302682" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1418919" sideWeight="0.7639847" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3302682" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23601532" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23601532" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -945,7 +947,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="101" />
+      <option name="time" value="104" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -1016,13 +1018,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Program Files (x86)/Google/google_appengine/google/appengine/ext/webapp/_webapp25.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="728" column="0" selection-start="21756" selection-end="21756" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/odenkiapi/api/Data/DataId.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="32" selection-start="301" selection-end="301" vertical-scroll-proportion="0.0">
@@ -1039,25 +1034,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://C:/Program Files (x86)/Google/google_appengine/google/appengine/ext/webapp/_webapp25.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="737" column="33" selection-start="21966" selection-end="21966" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/odenkiapi/lib/gae/JsonRpcDispatcher.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="90" column="0" selection-start="3169" selection-end="3169" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/odenkiapi/lib/json/JsonRpcRequest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="22" selection-start="1232" selection-end="1232" vertical-scroll-proportion="0.0">
+        <state line="137" column="0" selection-start="5442" selection-end="5442" vertical-scroll-proportion="0.4074074">
           <folding>
             <element signature="e#0#55#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/odenkiapi/lib/gae/JsonRpcDispatcher.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="0" selection-start="2191" selection-end="2191" vertical-scroll-proportion="0.3325359">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/odenkiapi/model/Hems.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="34" selection-start="2626" selection-end="2626" vertical-scroll-proportion="0.0">
+        <state line="78" column="0" selection-start="2627" selection-end="2627" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#23#78#0" expanded="true" />
           </folding>
@@ -1066,7 +1068,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/odenkiapi/api/Relays.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="0" selection-start="3347" selection-end="3347" vertical-scroll-proportion="0.8810365">
+        <state line="110" column="48" selection-start="4678" selection-end="4678" vertical-scroll-proportion="1.6704901">
           <folding>
             <element signature="e#0#55#0" expanded="true" />
           </folding>

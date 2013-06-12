@@ -130,11 +130,12 @@ class JsonRpcRequest(object):
             json_rpc_request_dict = loads(request.body)
             if isinstance(json_rpc_request_dict, list):
                 self.list = json_rpc_request_dict
+                return
         except:
             error("failed to parse JSON object in the body")
             self.error = JsonRpcError.PARSE_ERROR
             return
-        for k, v in json_rpc_request_dict:
+        for k, v in json_rpc_request_dict.iteritems():
             if k == "jsonrpc":
                 self.jsonrpc = v
             if k == "method":

@@ -34,8 +34,19 @@ class _Relays(JsonRpcDispatcher):
         for relay in jrequest.list:
             relays.setExpectedState(relay["relayId"], relay["scheduledDateTime"], relay["expectedState"])
         if jrequest.dict:
-            relays.setExpectedState(jrequest.dict["relayId"][0], jrequest.dict["scheduledDateTime"][0],
-                                    jrequest.dict["expectedState"][0])
+            if isinstance(jrequest.dict["relayId"], list) and len(jrequest.dict["relayId"]) == 1:
+                relay_id = jrequest.dict["relayId"][0]
+            else:
+                relay_id = jrequest.dict["relayId"]
+            if isinstance(jrequest.dict["scheduledDateTime"], list) and len(jrequest.dict["scheduledDateTime"]) == 1:
+                scheduled_date_time = jrequest.dict["scheduledDateTime"][0]
+            else:
+                scheduled_date_time = jrequest.dict["scheduledDateTime"]
+            if isinstance(jrequest.dict["expectedState"], list) and len(jrequest.dict["expectedState"]) == 1:
+                expected_state = jrequest.dict["expectedState"][0]
+            else:
+                expected_state = jrequest.dict["expectedState"]
+            relays.setExpectedState(relay_id, scheduled_date_time, expected_state)
             assert isinstance(jrequest.request, webapp.Request)
 
             relays = Relays(product_name, serial_number, module_id)
@@ -105,6 +116,18 @@ class _TestCase(unittest.TestCase):
         relays = Relays("product1", "serial1", "module1")
         print(relays)
         self.assertEqual(relays["relay5677"].scheduledDateTime, isoToNative(iso_string))
+        self.assertTrue(relays["relay5677"].expectedState)
+
+    def testPostJson(self):
+        iso_string = "2013-06-13T19:41:10+09:00"
+        response = self.testapp.post_json(b"/api/Relays/product1/serial1/module1",
+                                          {"scheduledDateTime": iso_string,
+                                           "expectedState": True,
+                                           "relayId": "relay456"})
+        relays = Relays("product1", "serial1", "module1")
+        print(relays)
+        self.assertEqual(relays["relay456"].scheduledDateTime, isoToNative(iso_string))
+        self.assertTrue(relays["relay456"].expectedState)
 
 
     def testHelloGet(self):
@@ -127,6 +150,11 @@ class _TestCase(unittest.TestCase):
 
     # def testPost(self):
     #     response = self.testapp.post_json(b"/api/Relays/product1/serial1/module1", {"a": "b"})
+
+    def testDict(self):
+        xx = {"1": "2", "3": "4"}
+        for x, y in xx.iteritems():
+            print(x, y)
 
     def tearDown(self):
         self.testbed.deactivate()
