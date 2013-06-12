@@ -28,7 +28,7 @@ class Relay(ndb.Model):
         return relay
 
     @classmethod
-    def fetchRelays(cls, product_name, serial_number, module_id):
+    def fetchRelayKeys(cls, product_name, serial_number, module_id):
         q = Relay.query()
         q = q.filter(Relay.productName == product_name)
         q = q.filter(Relay.serialNumber == serial_number)
@@ -36,12 +36,27 @@ class Relay(ndb.Model):
         keys = q.fetch(keys_only=True)
         return keys
 
+
+class Relays(dict):
+    def setExpectedState(self, relay_id, scheduled_date_time, expected_state=None):
+        relay = self[relay_id]
+        assert isinstance(relay, Relay)
+        assert isinstance(scheduled_date_time, datetime.datetime)
+        assert scheduled_date_time.tzinfo is None
+        relay.scheduledDateTime = scheduled_date_time
+        relay.expectedState = expected_state
+        relay.put()
+
     @classmethod
     def getRelays(cls, product_name, serial_number, module_id):
-        keys = cls.fetchRelay(product_name, serial_number, module_id)
-        relays = [None] * len(keys)
-        for i in range(len(keys)):
-            relays[i] = keys[i].get()
+        keys = Relay.fetchRelayKeys(product_name, serial_number, module_id)
+        relays = Relays()
+        for key in keys:
+            relay = key.get()
+            if relays.get(relay.relayId) is None:
+                relays[relay.relayId] = relay
+            else:
+                key.delete()
         return relays
 
 
@@ -57,7 +72,7 @@ class _TestCase(unittest.TestCase):
         self.testbed.init_datastore_v3_stub()
         self.testbed.init_memcache_stub()
 
-    def test(self):
+    def testDatetime(self):
         dt_aware = dateutil.parser.parse("2013-06-13T19:00:00+09:00")
         self.assertEqual("2013-06-13 19:00:00+09:00", str(dt_aware))
         self.assertIsInstance(dt_aware.tzinfo, datetime.tzinfo)
@@ -69,9 +84,12 @@ class _TestCase(unittest.TestCase):
         self.assertIsNone(dt_native.tzinfo)
 
         Relay.putRelay("product1", "serial1", "module1", 1, dt_native, True)
-        keys = Relay.fetchRelays("product1", "serial1", "module1")
-        self.assertIsInstance(keys, list)
-        self.assertEqual(len(keys), 1)
+        Relay.putRelay("product1", "serial1", "module1", 1, dt_native, True)
+        relays = Relays.getRelays("product1", "serial1", "module1")
+        #keys = Relay.fetchRelayKeys("product1", "serial1", "module1")
+        self.assertEqual(len(relays), 1)
+        relays = Relays.getRelays("product1", "serial1", "module1")
+        self.assertEqual(len(relays), 1)
 
     def tearDown(self):
         self.testbed.deactivate()
