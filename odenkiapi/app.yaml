@@ -145,6 +145,10 @@ handlers:
   static_files: newodenki/newodenki.css
   upload: newodenki/newodenki.css
 
+- url: /newodenki.js
+  static_files: newodenki/newodenki.js
+  upload: newodenki/newodenki.js
+
 - url: /RawData
   script: RawDataRequestHandler.py
 
