@@ -1,16 +1,18 @@
 from __future__ import unicode_literals, print_function
-from google.appengine.ext.webapp import Request
 from logging import error, debug
-from JsonRpcError import JsonRpcError
 from encodings.base64_codec import base64_decode
 from json import loads
-import re
+
+from JsonRpcError import JsonRpcError
+
 
 try:
     import DebugCredentials
+
     DEBUG_IP_ADDRESS_REGEX = DebugCredentials.DEBUG_IP_ADDRESS_REGEX
 except:
     DEBUG_IP_ADDRESS_REGEX = ""
+
 
 class JsonRpcRequest(object):
     """JSON-RPC 2.0 over HTTP GET method should have method,id and params in URL parameter part.
@@ -19,7 +21,8 @@ class JsonRpcRequest(object):
     'param' key in JSON-RPC request object.
     See http://www.simple-is-better.org/json-rpc/jsonrpc20-over-http.html
     """
-    __slots__ = ["jsonrpc", "method", "id", "params", "extra", "error", "pathInfo", "request", "url", "remoteAddr"]
+    __slots__ = ["jsonrpc", "method", "id", "params", "dict", "list", "error", "pathInfo", "request", "url",
+                 "remoteAddr"]
 
     def __init__(self, request):
         #assert isinstance(request, Request)
@@ -29,7 +32,9 @@ class JsonRpcRequest(object):
         self.params = []
         self.id = None
         self.jsonrpc = None
-        self.extra = {}
+        #self.extra = {}
+        self.dict = []
+        self.list = {}
         self.pathInfo = request.path_info.split("/")
         self.url = request.url
         self.remoteAddr = request.remote_addr
@@ -62,7 +67,7 @@ class JsonRpcRequest(object):
         if request.method == "TRACE":
             self._getFromBody(request)
             return
-        
+
     def _getFromArguments(self, request):
         for argument in request.arguments():
             values = request.get_all(argument)
@@ -113,16 +118,18 @@ class JsonRpcRequest(object):
                         self.error = JsonRpcError.PARSE_ERROR
                     self.params.extend(loaded_params)
                 continue
-            self.extra[argument] = values
+            self.dict[argument] = values
         assert not isinstance(self.id, list)
         #self.extras.extends(extras_in_arguments)
-                    
+
     def _getFromBody(self, request):
         """JSON-RPC request in HTTP body precedes that in parameter part of URL and FORM"""
         assert self.error is None
         assert isinstance(request.body, str)
         try:
             json_rpc_request_dict = loads(request.body)
+            if isinstance(json_rpc_request_dict, list):
+                self.list = json_rpc_request_dict
         except:
             error("failed to parse JSON object in the body")
             self.error = JsonRpcError.PARSE_ERROR
@@ -136,29 +143,35 @@ class JsonRpcRequest(object):
                 self.id = v
             if k == "params":
                 self.params = v
-            self.extra[k] = v
-            
+            self.dict[k] = v
+
     def getValue(self, key):
         params = getattr(self, "params", None)
         if isinstance(params, dict):
             value = params.get(key)
             if value: return value
-        extra = getattr(self, "extra", None)
+        extra = getattr(self, "dict", None)
         if isinstance(extra, dict):
             return extra.get(key)
 
-    def getExtra(self):
-        if hasattr(self, "extra"): return self.extra
-        return None
+    # def getExtra(self):
+    #     if hasattr(self, "extra"): return self.extra
+    #     return None
+
+    def getDict(self):
+        return self.dict
+
+    def getList(self):
+        return self.list
 
     def getJsonRpcVersion(self):
         if hasattr(self, "jsonrpc"): return self.jsonrpc
         return 1.0
-    
+
     def getParams(self):
         if hasattr(self, "params"): return self.params
         return None
-        
+
     def getId(self):
         return getattr(self, "id", None)
 
