@@ -4,7 +4,7 @@ from google.appengine.ext import webapp
 #import  webapp2
 from lib.gae import JsonRpcDispatcher
 from lib.json import JsonRpcRequest, JsonRpcResponse
-from model.Hems import Relays
+from model.Hems import Relays, isoToNative
 
 
 class _Relays(JsonRpcDispatcher):
@@ -30,10 +30,16 @@ class _Relays(JsonRpcDispatcher):
         module_id = jrequest.getPathInfo(5)
 
         relays = Relays(product_name, serial_number, module_id)
-        assert isinstance(jrequest.request, webapp.Request)
-        #json_object = simplejson.loads(jrequest.)
+        assert isinstance(relays, Relays)
+        for relay in jrequest.list:
+            relays.setExpectedState(relay["relayId"], relay["scheduledDateTime"], relay["expectedState"])
+        if jrequest.dict:
+            relays.setExpectedState(jrequest.dict["relayId"][0], jrequest.dict["scheduledDateTime"][0],
+                                    jrequest.dict["expectedState"][0])
+            assert isinstance(jrequest.request, webapp.Request)
 
-        jresponse.addResult(relays)
+            relays = Relays(product_name, serial_number, module_id)
+            jresponse.addResult(relays)
 
 
 class _Hello(webapp.RequestHandler):
@@ -90,21 +96,32 @@ class _TestCase(unittest.TestCase):
         self.assertTrue(json_object_after["result"][0]["relay111"]["expectedState"])
         self.assertFalse(json_object_after["result"][0]["relay222"]["expectedState"])
 
-    def testGet(self):
+    def testPost(self):
+        iso_string = "2013-06-13T19:31:10+09:00"
+        response = self.testapp.post(b"/api/Relays/product1/serial1/module1",
+                                     {"scheduledDateTime": iso_string,
+                                      "expectedState": True,
+                                      "relayId": "relay5677"})
+        relays = Relays("product1", "serial1", "module1")
+        print(relays)
+        self.assertEqual(relays["relay5677"].scheduledDateTime, isoToNative(iso_string))
+
+
+    def testHelloGet(self):
         response = self.testapp.get("/hello?a=b&a=c")
         self.assertEqual(_Hello.body, "")
         self.assertEqual(_Hello.arguments, ["a"])
         self.assertEqual(_Hello.headers["Content-Type"], '; charset="utf-8"')
 
-    def testPost(self):
+    def testHelloPost(self):
         response = self.testapp.post(b"/hello?v=b&a=z", {"c": "d"})
         self.assertEqual(_Hello.body, "c=d")
         self.assertEqual(_Hello.arguments, ["a", "c", "v"])
         self.assertEqual(_Hello.headers["Content-Type"], 'application/x-www-form-urlencoded; charset="utf-8"')
 
-    def testPostJson(self):
-        response = self.testapp.post_json(b"/hello?v=b&a=z", {"c": "d"})
-        self.assertEqual(_Hello.body, '{"c": "d"}')
+    def testHelloPostJson(self):
+        response = self.testapp.post_json(b"/hello?v=b&a=z", {"c": "d", "s": False})
+        self.assertEqual(_Hello.body, '{"c": "d", "s": false}')
         self.assertEqual(_Hello.arguments, ["a", "v"])
         self.assertEqual(_Hello.headers["Content-Type"], 'application/json; charset="utf-8"')
 

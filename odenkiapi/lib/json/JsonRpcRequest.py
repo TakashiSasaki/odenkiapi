@@ -33,8 +33,8 @@ class JsonRpcRequest(object):
         self.id = None
         self.jsonrpc = None
         #self.extra = {}
-        self.dict = []
-        self.list = {}
+        self.dict = {}
+        self.list = []
         self.pathInfo = request.path_info.split("/")
         self.url = request.url
         self.remoteAddr = request.remote_addr

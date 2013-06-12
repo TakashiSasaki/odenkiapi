@@ -70,6 +70,12 @@ class Relay(ndb.Model):
 
 class Relays(dict):
     def setExpectedState(self, relay_id, scheduled_date_time, expected_state=None):
+        if expected_state in ["None", "null"]:
+            expected_state = None
+        elif expected_state in ["True", "true"]:
+            expected_state = True
+        elif expected_state in ["False", "false"]:
+            expected_state = False
         relay = self.get(relay_id)
         if relay is None:
             relay = Relay()
