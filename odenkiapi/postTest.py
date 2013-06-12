@@ -29,8 +29,17 @@ class _TestCase(unittest.TestCase):
         self.data2 = Data.prepare("f2", "s2")
 
     def testSucceeded(self):
-        response = self.testapp.get("/post?a=b&c=d")
+        keys = Data.fetchByField("a")
+        self.assertEqual(len(keys), 0)
+        response = self.testapp.get("/post?a=bb&c=dd&a=x")
         print(response.body)
+        keys = Data.fetchByField("a")
+        self.assertEqual(len(keys), 2)
+        self.assertTrue(keys[0].get().field == "a")
+        self.assertTrue(keys[1].get().field == "a")
+        self.assertTrue(keys[0].get().string in ["bb", "x"])
+        self.assertTrue(keys[1].get().string in ["bb", "x"])
+
 
         #json_object = simplejson.loads(response.body)
         # self.assertEqual(json_object["result"].__len__(), 1)
