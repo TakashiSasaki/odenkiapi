@@ -46,6 +46,18 @@ class Relays(dict):
         relay.expectedState = expected_state
         relay.put()
 
+    def __init__(self, product_name, serial_number, module_id):
+        keys = Relay.fetchRelayKeys(product_name, serial_number, module_id)
+        #relays = Relays()
+        for key in keys:
+            relay = key.get()
+            if self.get(relay.relayId) is None:
+                self[relay.relayId] = relay
+            else:
+                key.delete()
+                #return relays
+
+
     @classmethod
     def getRelays(cls, product_name, serial_number, module_id):
         keys = Relay.fetchRelayKeys(product_name, serial_number, module_id)
@@ -92,10 +104,10 @@ class _TestCase(unittest.TestCase):
         dt_native = isoToNative("2013-06-13T19:00:00+09:00")
         Relay.putRelay("product1", "serial1", "module1", 1, dt_native, True)
         Relay.putRelay("product1", "serial1", "module1", 1, dt_native, True)
-        relays = Relays.getRelays("product1", "serial1", "module1")
+        relays = Relays("product1", "serial1", "module1")
         #keys = Relay.fetchRelayKeys("product1", "serial1", "module1")
         self.assertEqual(len(relays), 1)
-        relays = Relays.getRelays("product1", "serial1", "module1")
+        relays = Relays("product1", "serial1", "module1")
         self.assertEqual(len(relays), 1)
 
     def tearDown(self):
