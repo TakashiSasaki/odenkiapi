@@ -60,6 +60,18 @@ class Relays(dict):
         return relays
 
 
+def isoToNativeDateTime(iso_string):
+    pass
+
+
+def awareToNative(dt_aware):
+    assert isinstance(dt_aware.tzinfo, datetime.tzinfo)
+    utc_time_tuple = dt_aware.utctimetuple()
+    dt_native = datetime.datetime(utc_time_tuple.tm_year, utc_time_tuple.tm_mon, utc_time_tuple.tm_mday,
+                                  utc_time_tuple.tm_hour, utc_time_tuple.tm_min, utc_time_tuple.tm_sec)
+    return dt_native
+
+
 import unittest
 
 
@@ -77,9 +89,10 @@ class _TestCase(unittest.TestCase):
         self.assertEqual("2013-06-13 19:00:00+09:00", str(dt_aware))
         self.assertIsInstance(dt_aware.tzinfo, datetime.tzinfo)
 
-        utc_time_tuple = dt_aware.utctimetuple()
-        dt_native = datetime.datetime(utc_time_tuple.tm_year, utc_time_tuple.tm_mon, utc_time_tuple.tm_mday,
-                                      utc_time_tuple.tm_hour, utc_time_tuple.tm_min, utc_time_tuple.tm_sec)
+        # utc_time_tuple = dt_aware.utctimetuple()
+        # dt_native = datetime.datetime(utc_time_tuple.tm_year, utc_time_tuple.tm_mon, utc_time_tuple.tm_mday,
+        #                               utc_time_tuple.tm_hour, utc_time_tuple.tm_min, utc_time_tuple.tm_sec)
+        dt_native = awareToNative(dt_aware)
         self.assertEqual("2013-06-13 10:00:00", str(dt_native))
         self.assertIsNone(dt_native.tzinfo)
 
