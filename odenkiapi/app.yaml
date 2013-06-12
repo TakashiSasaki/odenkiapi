@@ -26,13 +26,15 @@ handlers:
   static_dir: stylesheets
 
 - url: /js
-  static_dir: js
+#  static_dir: js
+  static_dir: newodenki/js
 
 - url: /html
   static_dir: html
 
 - url: /css
-  static_dir: css
+#  static_dir: css
+  static_dir: newodenki/css
   
 - url: /image
   static_dir: image
@@ -132,9 +134,16 @@ handlers:
 - url: /MyRequestHandler*
   script: MyRequestHandler.py
 
+#- url: /
+#  static_files: html/main.html
+#  upload: html/main.html
 - url: /
-  static_files: html/main.html
-  upload: html/main.html
+  static_files: newodenki/newodenki.html
+  upload: newodenki/newodenki.html
+
+- url: /newodenki.css
+  static_files: newodenki/newodenki.css
+  upload: newodenki/newodenki.css
 
 - url: /RawData
   script: RawDataRequestHandler.py
