@@ -29,7 +29,7 @@ class _TestCase(unittest.TestCase):
         self.data2 = Data.prepare("f2", "s2")
 
     def testSucceeded(self):
-        response = self.testapp.get("/post")
+        response = self.testapp.get("/post?a=b&c=d")
         print(response.body)
 
         #json_object = simplejson.loads(response.body)
