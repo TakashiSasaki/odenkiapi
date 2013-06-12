@@ -1,10 +1,9 @@
 #!-*- coding:utf-8 -*-
 from __future__ import unicode_literals, print_function
+
 import datetime
 
 from google.appengine.ext import ndb
-
-import dateutil.parser
 
 
 class Relay(ndb.Model):
