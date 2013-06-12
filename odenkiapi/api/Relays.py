@@ -24,6 +24,7 @@ class _Relays(JsonRpcDispatcher):
 map = ("/api/Relays/[0-9a-zA-Z_]+/[0-9a-zA-Z_]+/[0-9a-zA-Z_]+", _Relays)
 
 import unittest
+import datetime
 
 
 class _TestCase(unittest.TestCase):
@@ -39,10 +40,24 @@ class _TestCase(unittest.TestCase):
         self.testbed.init_datastore_v3_stub()
         self.testbed.init_memcache_stub()
 
+        relays = Relays("product1", "serial1", "module1")
+        relays.setExpectedState("relay111", datetime.datetime.utcnow() + datetime.timedelta(1), False)
+        relays.setExpectedState("relay222", datetime.datetime.utcnow() + datetime.timedelta(1), True)
+
     def testSucceeded(self):
-        response = self.testapp.get("/api/Relays/product1/serial1/module1")
-        print(response.body)
-        j = simplejson.loads(response.body)
+        response_before = self.testapp.get("/api/Relays/product1/serial1/module1")
+        json_object_before = simplejson.loads(response_before.body)
+        print(response_before.body)
+        self.assertFalse(json_object_before["result"][0]["relay111"]["expectedState"])
+        self.assertTrue(json_object_before["result"][0]["relay222"]["expectedState"])
+
+        relays = Relays("product1", "serial1", "module1")
+        relays.setExpectedState("relay111", datetime.datetime.utcnow() + datetime.timedelta(1), True)
+        relays.setExpectedState("relay222", datetime.datetime.utcnow() + datetime.timedelta(1), False)
+        response_after = self.testapp.get("/api/Relays/product1/serial1/module1")
+        json_object_after = simplejson.loads(response_after.body)
+        self.assertTrue(json_object_after["result"][0]["relay111"]["expectedState"])
+        self.assertFalse(json_object_after["result"][0]["relay222"]["expectedState"])
 
 
     def tearDown(self):
