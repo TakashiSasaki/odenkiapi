@@ -45,9 +45,9 @@ class _Relays(JsonRpcDispatcher):
         product_name = jrequest.getPathInfo(3)
         serial_number = jrequest.getPathInfo(4)
         module_id = jrequest.getPathInfo(5)
-        self.response.headers.add_header(b"Set-Cookie", b"productName=%s" % product_name.encode())
-        self.response.headers.add_header(b"Set-Cookie", b"serialNumber=%s" % serial_number.encode())
-        self.response.headers.add_header(b"Set-Cookie", b"moduleId=%s" % module_id.encode())
+        #self.response.headers.add_header(b"Set-Cookie", b"productName=%s" % product_name.encode())
+        #self.response.headers.add_header(b"Set-Cookie", b"serialNumber=%s" % serial_number.encode())
+        #self.response.headers.add_header(b"Set-Cookie", b"moduleId=%s" % module_id.encode())
 
         relays = Relays(product_name, serial_number, module_id)
         assert isinstance(relays, Relays)
@@ -69,8 +69,8 @@ class _Relays(JsonRpcDispatcher):
             relays.setExpectedState(relay_id, scheduled_date_time, expected_state)
             assert isinstance(jrequest.request, webapp.Request)
 
-            relays = Relays(product_name, serial_number, module_id)
-            jresponse.addResult(relays)
+        relays = Relays(product_name, serial_number, module_id)
+        jresponse.addResult(relays)
 
 
 class _Hello(webapp.RequestHandler):
@@ -136,7 +136,6 @@ class _TestCase(unittest.TestCase):
                                       "expectedState": True,
                                       "relayId": "relay5677"})
         relays = Relays("product1", "serial1", "module1")
-        print(relays)
         self.assertEqual(relays["relay5677"].scheduledDateTime, isoToNative(iso_string))
         self.assertTrue(relays["relay5677"].expectedState)
 
