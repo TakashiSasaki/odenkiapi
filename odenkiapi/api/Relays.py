@@ -70,7 +70,11 @@ class _Relays(JsonRpcDispatcher):
             assert isinstance(jrequest.request, webapp.Request)
 
         relays = Relays(product_name, serial_number, module_id)
-        jresponse.addResult(relays)
+        assert isinstance(relays, dict)
+        l = []
+        for k, v in relays.iteritems():
+            l.append(v)
+        jresponse.addResult(l)
 
 
 class _Hello(webapp.RequestHandler):
