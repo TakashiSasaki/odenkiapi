@@ -39,6 +39,9 @@ handlers:
 - url: /image
   static_dir: image
 
+- url: /images
+  static_dir: newodenki/images
+
 - url: /api/Relays/.*
   script: api/Relays.py
 
