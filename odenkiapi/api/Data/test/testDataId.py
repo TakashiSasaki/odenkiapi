@@ -29,6 +29,7 @@ class _TestCase(unittest.TestCase):
         self.assertEqual(data_id, 1)
         response = self.testapp.get("/api/Data/dataId/%s" % data_id)
         j = simplejson.loads(response.body)
+        print(j)
         self.assertEqual(j["result"][0]["field"], "f1")
         self.assertEqual(j["result"][0]["string"], "s1")
         self.assertEqual(j["result"][0]["dataId"], 1)

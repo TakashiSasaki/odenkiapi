@@ -10,6 +10,8 @@ from google.appengine.ext import db
 from gaesessions import Session
 from gdata.gauth import OAuthHmacToken
 from model.Columns import Columns
+import model.DataNdb
+import model.Data
 
 
 class JSONEncoder(_JSONEncoder):
@@ -30,6 +32,14 @@ class JSONEncoder(_JSONEncoder):
             assert isinstance(o, db.Key)
             debug("encoding db.Key %s to JSON" % o)
             return unicode(o)
+        if isinstance(o, ndb.Key):
+            return self.default(ndb.get(o))
+        if isinstance(o, model.Data.Data):
+            d = {"dataId": o.dataId, "field": o.field, "string": o.string}
+            return d
+            # if isinstance(o, model.DataNdb.Data):
+        #     l = [o.dataId, o.field, o.string]
+        #     return l
         if isinstance(o, ndb.Model):
             debug("encoding NdbModel %s to JSON" % o)
             return o.to_dict()

@@ -1,10 +1,11 @@
 from __future__ import unicode_literals, print_function
-from lib.gae import JsonRpcDispatcher
-from lib.json import JsonRpcRequest, JsonRpcResponse, JsonRpcError
-from model.DataNdb import Data
-from google.appengine.ext import ndb
-from model.UnusedDataEliminator import UnusedDataEliminator
+
 from google.appengine.ext.deferred import defer
+
+from lib.gae import JsonRpcDispatcher
+from lib.json import JsonRpcRequest, JsonRpcResponse
+from model.UnusedDataEliminator import UnusedDataEliminator
+
 
 class _DeleteUnused(JsonRpcDispatcher):
     def GET(self, jrequest, jresponse):
@@ -17,7 +18,7 @@ class _DeleteUnused(JsonRpcDispatcher):
         except Exception, e:
             jresponse.setErrorInvalidParameter(e)
             return
-        #query = MetadataNdb.queryRange(start, end)
+            #query = MetadataNdb.queryRange(start, end)
         #keys = query.fetch(keys_only=True)
         eliminator = UnusedDataEliminator(start, end)
         defer(eliminator.run)
@@ -25,9 +26,5 @@ class _DeleteUnused(JsonRpcDispatcher):
         jresponse.setExtraValue("end", end)
 
 
-import UrlMap
-UrlMap.UrlMap.append(("/api/Data/UnusedDataEliminator/[0-9]+/[0-9]+", _DeleteUnused))
+paths = [("/api/Data/UnusedDataEliminator/[0-9]+/[0-9]+", _DeleteUnused)]
 
-if __name__ == "__main__":
-    import unittest
-    unittest.main()

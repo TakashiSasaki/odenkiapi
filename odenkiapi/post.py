@@ -1,15 +1,20 @@
 from __future__ import unicode_literals, print_function
+from urlparse import urlparse
+
+from google.appengine.ext import db
+from google.appengine.ext.webapp import RequestHandler, Response, Request
+
+from lib.json import dumps
 from model.Sender import GetSender
 from model.RawData import putRawData
 from model.Data import Data
 from model.Metadata import putMetadata
-from google.appengine.ext import db
-from google.appengine.ext.webapp import RequestHandler, Response, Request
-from urlparse import urlparse
 from model import RawDataNdb
 from model.Hems import Relays, Relay, nativeToEpoch
 
+
 class PostPage(RequestHandler):
+    __slots__ = ["productName", "serialNumber", "moduleId"]
 
     def get(self):
         self.sender = GetSender(self.request)
@@ -17,52 +22,60 @@ class PostPage(RequestHandler):
         # self.data_list = putDataList(self.request)
         self.data_list = Data.storeRequest(self.request)
         self.metadata = putMetadata(self.sender, self.raw_data, self.data_list)
-        
+
         assert isinstance(self.response, Response)
         self.response.headers['Content-Type'] = "text/plain"
         for key in self.data_list:
             data = db.get(key)
             if data.field == "productName":
-                product_name = data.string
+                self.productName = data.string
             if data.field == "serialNumber":
-                serial_number = data.string
+                self.serialNumber = data.string
             if data.field == "moduleId":
-                module_id = data.string
+                self.moduleId = data.string
 
-            #self.response.out.write("field:" + data.field + " string:" + data.string + "\n")
+                #self.response.out.write("field:" + data.field + " string:" + data.string + "\n")
 
-        relays = Relays(product_name, serial_number, module_id)
-        assert isinstance(relays, Relays)
-        l = []
-        for k, v in relays.iteritems():
-            assert isinstance(v, Relay)
-            r = {
-                "relayId" : v.relayId,
-                #"scheduledDateTime" : v.scheduledDateTime,
-                "scheduledEpoch" : nativeToEpoch(v.scheduledDateTime),
-                "expectedState" : v.expectedState
+        try:
+            relays = Relays(self.productName, self.serialNumber, self.moduleId)
+            assert isinstance(relays, Relays)
+            l = []
+            for k, v in relays.iteritems():
+                assert isinstance(v, Relay)
+                r = {
+                    "relayId": v.relayId,
+                    #"scheduledDateTime" : v.scheduledDateTime,
+                    "scheduledEpoch": nativeToEpoch(v.scheduledDateTime),
+                    "expectedState": v.expectedState
+                }
+                l.append(r)
+
+            o = {
+                "relayStates": l
             }
-            l.append(r)
 
-        o = {
-            "relayStates" : l
-        }
-        import json
-        self.response.out.write(json.dumps(o))
+            self.response.out.write(dumps(o))
+        except AttributeError, e:
+            l = map(lambda key: db.get(key), self.data_list)
+            j = dumps(l)
+            self.response.out.write(j)
 
     def post(self):
         # logging.info("body="+self.request.body)
         self.get()
+
 
 class _GetLastPostedRawDataHandler(RequestHandler):
     def get(self):
         raw_data = RawDataNdb.RawData.getLast()
         self.response.out.write(raw_data)
 
+
 class _Path(RequestHandler):
     def get(self):
         parsed_url = urlparse(self.request.url)
         self.response.out.write(parsed_url.path)
+
 
 class _Params(RequestHandler):
     def get(self):
@@ -71,51 +84,60 @@ class _Params(RequestHandler):
         self.response.out.write(parsed_url.params)
         self.response.headers["a"] = "abc"
 
+
 class _Query(RequestHandler):
     def get(self):
         parsed_url = urlparse(self.request.url)
         self.response.out.write(parsed_url.query)
+
 
 class _Fragment(RequestHandler):
     def get(self):
         parsed_url = urlparse(self.request.url)
         self.response.out.write(parsed_url.fragment)
 
+
 class _Body(RequestHandler):
     def get(self):
         self.response.out.write(self.request.body)
 
+
 from google.appengine.ext.webapp import WSGIApplication
+
 _wsgi_application = WSGIApplication([('/post', PostPage),
-                                    ('/_Path', _Path),
-                                    ('/_Params.*', _Params),
-                                    ('/_Query', _Query),
-                                    ('/_Fragment', _Fragment),
-                                    ('/_Body', _Body)],
-                                   debug=True)
+                                     ('/_Path', _Path),
+                                     ('/_Params.*', _Params),
+                                     ('/_Query', _Query),
+                                     ('/_Fragment', _Fragment),
+                                     ('/_Body', _Body)],
+                                    debug=True)
 
 if __name__ == "__main__":
     from google.appengine.ext.webapp.util import run_wsgi_app
+
     run_wsgi_app(_wsgi_application)
 
 from unittest import TestCase
-class _MyTest(TestCase):
 
+
+class _MyTest(TestCase):
     def setUp(self):
         TestCase.setUp(self)
         try:
             import webtest
         except ImportError:
             import setuptools.command.easy_install as easy_install
+
             easy_install.main(["WebTest"])
             exit()
         self.test_app = webtest.TestApp(_wsgi_application)
         from google.appengine.ext.testbed import Testbed
+
         self.testbed = Testbed()
         self.testbed.activate()
         self.testbed.init_datastore_v3_stub()
         self.testbed.init_memcache_stub()
-        
+
     def tearDown(self):
         self.testbed.deactivate()
         TestCase.tearDown(self)
@@ -123,25 +145,27 @@ class _MyTest(TestCase):
     def testGet(self):
         response = self.test_app.get("/post")
         import webtest
+
         self.assertIsInstance(response, webtest.TestResponse)
         self.assertEqual(response.status, "200 OK")
         self.assertEqual(response.headers["Content-Type"], 'text/plain')
-        
+
     def testGet2(self):
         TEST_QUERY = "a=b&c=d&e=f"
         response = self.test_app.get("/post?" + TEST_QUERY)
         import webtest
+
         self.assertIsInstance(response, webtest.TestResponse)
         self.assertEqual(response.status, "200 OK")
         self.assertEqual(response.headers["Content-Type"], 'text/plain')
         print(response.body)
-    
+
     def test_Path(self):
         response = self.test_app.get("/_Path")
         self.assertEqual(response.status, "200 OK")
         self.assertEqual(response.headers["Content-Type"], 'text/html; charset=utf-8')
         self.assertEqual(response.body, '/_Path')
-        
+
     def test_Params(self):
         response = self.test_app.request(b"/_Params;ppp?a=b&c=d#e", method=b"GET")
         self.assertEqual(response.headers["a"], "abc")
@@ -160,9 +184,9 @@ class _MyTest(TestCase):
         self.assertEqual(response.status, "200 OK")
         self.assertEqual(response.headers["Content-Type"], 'text/html; charset=utf-8')
         self.assertEqual(response.body, "a=b&c=d")
-        
+
+
 class _TestSemicolonInUrl(TestCase):
-    
     def testUrlParse(self):
         """urlparse.urlparse recognizes the semicolon in the given path for http scheme."""
         self.assertEqual(urlparse("http://localhost/a/b/c;d").params, "d")
@@ -172,12 +196,16 @@ class _TestSemicolonInUrl(TestCase):
     def testWebobRequest(self):
         """It shows a simple usage of WebOb Request class to create a blank request."""
         import webob
+
         request = webob.Request.blank("/a/b/c")
         self.assertEqual(request.url, "http://localhost/a/b/c")
 
     def testWebobRequestSemicolon(self):
-        """The semicolon in the given path is URL-encoded UNEXPECTEDLY.""" 
+        """The semicolon in the given path is URL-encoded UNEXPECTEDLY."""
         import webob
+
         request = webob.Request.blank("/a/b/c;d")
         self.assertEqual(request.url, "http://localhost/a/b/c%3Bd")
-    
+
+
+paths = [("/post", PostPage)]

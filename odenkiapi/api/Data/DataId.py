@@ -1,7 +1,10 @@
 from __future__ import unicode_literals, print_function
 #import  webapp2
 from lib.gae import JsonRpcDispatcher
-from lib.json import JsonRpcRequest, JsonRpcResponse, JsonRpcError
+#from lib.json import JsonRpcRequest, JsonRpcResponse, JsonRpcError
+from lib.json.JsonRpcRequest import JsonRpcRequest
+from lib.json.JsonRpcResponse import JsonRpcResponse
+from lib.json.JsonRpcError import JsonRpcError
 from model.DataNdb import Data
 
 

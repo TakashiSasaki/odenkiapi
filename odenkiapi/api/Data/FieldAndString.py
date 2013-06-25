@@ -1,6 +1,7 @@
 from __future__ import unicode_literals, print_function
 from lib.gae import JsonRpcDispatcher
-from lib.json import JsonRpcRequest, JsonRpcResponse
+from lib.json.JsonRpcResponse import JsonRpcResponse
+from lib.json.JsonRpcRequest import JsonRpcRequest
 from lib.json.JsonRpcError import EntityNotFound
 from model.DataNdb import Data
 

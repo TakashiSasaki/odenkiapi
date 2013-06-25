@@ -1,20 +1,21 @@
 from __future__ import unicode_literals, print_function
-import post
-
-map = ("/post", post.PostPage)
-from model.DataNdb import Data
-
 import unittest
+import json
+
+import post
+from model.DataNdb import Data
 
 
 class _TestCase(unittest.TestCase):
+    __slots__ = ["testapp"]
+
     def setUp(self):
         import webtest
         from google.appengine.ext import webapp
         #app = webapp2.WSGIApplication([map])
         #from lib.gae import run_wsgi_app
         #app = run_wsgi_app(UrlMap.UrlMap)
-        wsgi_application = webapp.WSGIApplication([map], debug=True)
+        wsgi_application = webapp.WSGIApplication(post.paths, debug=True)
         self.testapp = webtest.TestApp(wsgi_application)
 
         from google.appengine.ext import testbed
@@ -32,7 +33,7 @@ class _TestCase(unittest.TestCase):
         keys = Data.fetchByField("a")
         self.assertEqual(len(keys), 0)
         response = self.testapp.get("/post?a=bb&c=dd&a=x")
-        print(response.body)
+        self.assertEqual(json.loads(response.body), [[4, "a", "bb"], [5, "a", "x"], [6, "c", "dd"]])
         keys = Data.fetchByField("a")
         self.assertEqual(len(keys), 2)
         self.assertTrue(keys[0].get().field == "a")

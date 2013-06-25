@@ -1,11 +1,13 @@
 from __future__ import unicode_literals, print_function
+
+from google.appengine.ext import ndb
+
 from lib.gae import JsonRpcDispatcher
 from lib.json import JsonRpcRequest, JsonRpcResponse, JsonRpcError
 from model.DataNdb import Data, getCanonicalData
-from google.appengine.ext import ndb
+
 
 class _DuplicationCheck(JsonRpcDispatcher):
-    
     def GET(self, jrequest, jresponse):
         LIMIT = 100
         assert isinstance(jrequest, JsonRpcRequest)
@@ -29,10 +31,6 @@ class _DuplicationCheck(JsonRpcDispatcher):
             jresponse.addResult([data.dataId, data.field, data.string, getCanonicalData(key).get().dataId])
         jresponse.setExtraValue("limit", LIMIT)
 
-import UrlMap
-UrlMap.UrlMap.append(("/api/Data/duplicated", _DuplicationCheck))
 
-if __name__ == "__main__":
-    import unittest
-    unittest.main()
+paths = [("/api/Data/duplicated", _DuplicationCheck)]
 

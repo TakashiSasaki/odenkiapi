@@ -1,25 +1,33 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals, print_function
-from google.appengine.ext import ndb
-from model.Columns import Columns
 import logging as _logging
+import logging
+
+from google.appengine.ext import ndb
+
+from model.Columns import Columns
 from lib.json.JsonRpcError import JsonRpcException
 from model.CsvMixin import CsvMixin
 from lib.DataTableMixin import DataTableMixin
 from gaesessions import get_current_session
-import logging
+
+
 _logging.getLogger().setLevel(_logging.DEBUG)
 from google.appengine.ext.webapp import RequestHandler, Response
 from StringIO import StringIO
 import csv
 from logging import debug, error, info
 from warnings import warn
-from lib.json import JsonRpcRequest, JsonRpcResponse, JsonRpcError, dumps
+from lib.json import dumps
+from lib.json.JsonRpcError import JsonRpcError
+from lib.json.JsonRpcRequest import JsonRpcRequest
+from lib.json.JsonRpcResponse import JsonRpcResponse
+
 
 class JsonRpcDispatcher(RequestHandler):
     """JsonRpcDispatcher invokes corresponding methods according to given method parameter"""
     __slot__ = ["methodList", "jsonRpc"]
-    
+
     def __init__(self, *inputs, **kw):
         super(JsonRpcDispatcher, self).__init__(*inputs, **kw)
         #RequestHandler.__init__(self, request, response)
@@ -32,7 +40,7 @@ class JsonRpcDispatcher(RequestHandler):
         self.methodList = {}
         self.methodList.update(self.__class__.__dict__)
         assert isinstance(self.methodList, dict)
-        
+
         def d(key):
             try:
                 del self.methodList[key]
@@ -56,22 +64,24 @@ class JsonRpcDispatcher(RequestHandler):
         d("_write")
         d("_invokeMethod")
         d("_initMethodList")
-        
+
         for k, v in self.methodList.iteritems():
             if isinstance(k, str):
                 self.methodList[k.decode()] = v
-    
+
     def _invokeMethod(self, method_name, json_rpc_request):
         assert isinstance(json_rpc_request, JsonRpcRequest)
         json_rpc_response = JsonRpcResponse(json_rpc_request.getId(), self.response)
         try:
             x = self.methodList[method_name](self, json_rpc_request, json_rpc_response)
             if x:
-                logging.debug ("dispatched method need not return an object of JsonRpcResponse.")
+                logging.debug("dispatched method need not return an object of JsonRpcResponse.")
         except JsonRpcException, e:
             from sys import exc_info
+
             (etype, value, tb) = exc_info()
             from traceback import print_exception
+
             print_exception(etype, value, tb)
             json_rpc_response.setError(e.code, e.message, e.data, e.__class__.__name__)
 
@@ -81,7 +91,7 @@ class JsonRpcDispatcher(RequestHandler):
         #         json_rpc_response.delRedirectTarget()
 
         return json_rpc_response
-    
+
     def get(self, *args):
         jrequest = JsonRpcRequest(self.request)
         jresponse = self._invokeMethod(jrequest.method, jrequest)
@@ -91,27 +101,27 @@ class JsonRpcDispatcher(RequestHandler):
         json_rpc_request = JsonRpcRequest(self.request)
         json_rpc_response = self._invokeMethod(json_rpc_request.method, json_rpc_request)
         self._write(json_rpc_response)
-    
+
     def put(self, *args):
         json_rpc_request = JsonRpcRequest(self.request)
         json_rpc_response = self._invokeMethod(json_rpc_request.method, json_rpc_request)
         self._write(json_rpc_response)
-    
+
     def head(self, *args):
         json_rpc_request = JsonRpcRequest(self.request)
         json_rpc_response = self._invokeMethod(json_rpc_request.method, json_rpc_request)
         self._write(json_rpc_response)
-    
+
     def options(self, *args):
         json_rpc_request = JsonRpcRequest(self.request)
         json_rpc_response = self._invokeMethod(json_rpc_request.method, json_rpc_request)
         self._write(json_rpc_response)
-        
+
     def delete(self, *args):
         json_rpc_request = JsonRpcRequest(self.request)
         json_rpc_response = self._invokeMethod(json_rpc_request.method, json_rpc_request)
         self._write(json_rpc_response)
-        
+
     def trace(self, *args):
         json_rpc_request = JsonRpcRequest(self.request)
         json_rpc_response = self._invokeMethod(json_rpc_request.method, json_rpc_request)
@@ -127,7 +137,7 @@ class JsonRpcDispatcher(RequestHandler):
             self.redirect(json_rpc_response.getRedirectTarget())
             debug("redirecting to %s" % json_rpc_response.getRedirectTarget())
             return
-        
+
         # notification has no id
         if json_rpc_response.getId() is None:
             debug("JSON-RPC notification")
@@ -136,19 +146,20 @@ class JsonRpcDispatcher(RequestHandler):
                 self.response.set_status(204) # No content
                 self.response.content_type = "text/plain"
                 return
-            json_rpc_response.setError(JsonRpcError.INVALID_REQUEST, "Response for notification should have neither result nor error.")
+            json_rpc_response.setError(JsonRpcError.INVALID_REQUEST,
+                                       "Response for notification should have neither result nor error.")
 
         if json_rpc_response.has_key("error"):
             debug("JSON RPC response with error.")
             #assert  json_rpc_response.getResult() is None
             self.response.content_type = "application/json"
             json_rpc_error_code = json_rpc_response.getErrorCode()
-            http_status_code =  JsonRpcDispatcher._getHttpStatusFromJsonRpcError(json_rpc_error_code)
+            http_status_code = JsonRpcDispatcher._getHttpStatusFromJsonRpcError(json_rpc_error_code)
             self.response.set_status(http_status_code)
             json_string = dumps(json_rpc_response)
             self.response.out.write(dumps(json_rpc_response))
             return
-        
+
         # HTTP response in given format
         if self.request.get("format") == "tsv":
             self._writeTsv(json_rpc_response)
@@ -160,7 +171,7 @@ class JsonRpcDispatcher(RequestHandler):
             self._writeDataTable(json_rpc_response)
             return
         self._writeJson(json_rpc_response)
-    
+
     def _writeJson(self, json_rpc_response):
         assert isinstance(json_rpc_response, JsonRpcResponse)
         assert isinstance(json_rpc_response, dict)
@@ -179,14 +190,14 @@ class JsonRpcDispatcher(RequestHandler):
         csv_writer = csv.writer(output, dialect)
         columns = json_rpc_response.getColumns()
         if not columns:
-            raise RuntimeError("Column description is not set in JSON-RPC response object.") 
+            raise RuntimeError("Column description is not set in JSON-RPC response object.")
             return
         assert isinstance(columns, Columns)
         column_ids = columns.getColumnIds()
         csv_writer.writerow(column_ids)
         result = json_rpc_response.getResult()
-        if not isinstance(result, list): 
-            warn("Result must be a list to emit CSV.") 
+        if not isinstance(result, list):
+            warn("Result must be a list to emit CSV.")
             return
         for record in result:
             if isinstance(record, ndb.Model):
@@ -206,16 +217,16 @@ class JsonRpcDispatcher(RequestHandler):
             error("result contains neither list nor NdbModel")
         self.response.out.write(output.getvalue())
         self.response.content_type = content_type
-    
+
     def _writeTsv(self, json_rpc_response):
-        self._writeCsv(json_rpc_response, dialect=csv.excel_tab, content_type="application/vnd.ms-excel")        
-        
+        self._writeCsv(json_rpc_response, dialect=csv.excel_tab, content_type="application/vnd.ms-excel")
+
     def _writeDataTable(self, jresponse):
         debug("format=DataTable")
         assert isinstance(jresponse, JsonRpcResponse)
         columns = jresponse.getColumns()
         if not columns:
-            warn("Column description is not set in JSON-RPC response object.") 
+            warn("Column description is not set in JSON-RPC response object.")
             return
         assert isinstance(columns, Columns)
         rows = []
@@ -224,7 +235,7 @@ class JsonRpcDispatcher(RequestHandler):
             row = x.to_row(columns)
             debug(row)
             rows.append(row)
-        data_table = {"cols": jresponse.getColumns(), "rows":rows}
+        data_table = {"cols": jresponse.getColumns(), "rows": rows}
         info(str(data_table))
         self.response.out.write(dumps(data_table))
         self.response.content_type = "application/javascript"
@@ -244,7 +255,7 @@ class JsonRpcDispatcher(RequestHandler):
         if json_rpc_error >= JsonRpcError.SERVER_ERROR_RESERVED_MIN and json_rpc_error <= JsonRpcError.SERVER_ERROR_RESERVED_MAX:
             return 500
         return None
-    
+
     def doesAcceptHtml(self, jrequest, jresponse):
         if self.request.accept.accept_html(): return True
         self.response.setHttpStatus(406)
@@ -257,9 +268,9 @@ class JsonRpcDispatcher(RequestHandler):
         assert isinstance(true_or_false, bool)
         current_session = get_current_session()
         current_session["inAdminMode"] = true_or_false
-    
-    # def _inAdminMode(self):
-    #     current_session = get_current_session()
-    #     return current_session.get("inAdminMode")
+
+        # def _inAdminMode(self):
+        #     current_session = get_current_session()
+        #     return current_session.get("inAdminMode")
 
          
