@@ -7,6 +7,7 @@ from google.appengine.ext import db
 from google.appengine.ext.webapp import RequestHandler, Response, Request
 from urlparse import urlparse
 from model import RawDataNdb
+from model.Hems import Relays, Relay, nativeToEpoch
 
 class PostPage(RequestHandler):
 
@@ -21,7 +22,33 @@ class PostPage(RequestHandler):
         self.response.headers['Content-Type'] = "text/plain"
         for key in self.data_list:
             data = db.get(key)
-            self.response.out.write("field:" + data.field + " string:" + data.string + "\n")
+            if data.field == "productName":
+                product_name = data.string
+            if data.field == "serialNumber":
+                serial_number = data.string
+            if data.field == "moduleId":
+                module_id = data.string
+
+            #self.response.out.write("field:" + data.field + " string:" + data.string + "\n")
+
+        relays = Relays(product_name, serial_number, module_id)
+        assert isinstance(relays, Relays)
+        l = []
+        for k, v in relays.iteritems():
+            assert isinstance(v, Relay)
+            r = {
+                "relayId" : v.relayId,
+                #"scheduledDateTime" : v.scheduledDateTime,
+                "scheduledEpoch" : nativeToEpoch(v.scheduledDateTime),
+                "expectedState" : v.expectedState
+            }
+            l.append(r)
+
+        o = {
+            "relayStates" : l
+        }
+        import json
+        self.response.out.write(json.dumps(o))
 
     def post(self):
         # logging.info("body="+self.request.body)

@@ -5,26 +5,10 @@ from google.appengine.ext import webapp
 from lib.gae import JsonRpcDispatcher
 from lib.json import JsonRpcRequest, JsonRpcResponse
 from model.Hems import Relays, isoToNative
+from model.DataNdb import Data
 
 
-class _Index(webapp.RequestHandler):
-    def get(self):
-        html = """
-<html>
-<head><title>Relays</title></head><body>
-<form method="POST">
-    <p>productName<input type="text" name="productName"/></p>
-    <p>serialNumber<input type="text" name="serialNumber"/></p>
-    <p>moduleId<input type="text" name="moduleId" /></p>
-    <p>relayId<input type="text" name="relayId" /></p>
-    <p>scheduledDateTime<input type="text" name="scheduledDateTime" /></p>
-    <p>expectedState<input type="text" name="expectedState" /></p>
-</form>
-</body></html>"""
-        self.response.out.write(html)
-
-
-class _Relays(JsonRpcDispatcher):
+class _History(JsonRpcDispatcher):
     def GET(self, jrequest, jresponse):
         assert isinstance(jrequest, JsonRpcRequest)
         assert isinstance(jresponse, JsonRpcResponse)
@@ -33,6 +17,11 @@ class _Relays(JsonRpcDispatcher):
         product_name = jrequest.getPathInfo(3)
         serial_number = jrequest.getPathInfo(4)
         module_id = jrequest.getPathInfo(5)
+        field = jrequest.getPathInfo(6)
+
+        product_name_data = Data.getByFieldAndString("productName", product_name)
+        serial_number_data = Data.getByFieldAndString("serialNumber", serial_number)
+        module_id_data = Data.getByFieldAndString("moduleId", module_id)
 
         relays = Relays(product_name, serial_number, module_id)
         jresponse.addResult(relays)

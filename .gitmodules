@@ -1,0 +1,6 @@
+[submodule "newodenki"]
+	path = newodenki
+	url = git://github.com/TakashiSasaki/newodenki.git
+[submodule "odenkiapi/newodenki"]
+	path = odenkiapi/newodenki
+	url = git://github.com/TakashiSasaki/newodenki.git
