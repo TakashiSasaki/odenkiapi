@@ -95,7 +95,7 @@ class CurrentOdenkiId(JsonRpcDispatcher):
 
     def POST(self, jrequest, jresponse):
         jresponse.setId()
-        odenki_id = int(jrequest.getValue("odenkiId")[0])
+        odenki_id = int(jrequest.getValue("currentOdenkiId")[0])
         odenki_user = OdenkiUser.getByOdenkiId(odenki_id)
         assert isinstance(odenki_user, OdenkiUser)
         odenki_user.saveToSession()
