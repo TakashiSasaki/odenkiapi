@@ -131,7 +131,7 @@ class JsonRpcRequest(object):
             if isinstance(json_rpc_request_dict, list):
                 self.list = json_rpc_request_dict
                 return
-        except:
+        except ValueError, e:
             error("failed to parse JSON object in the body")
             self.error = JsonRpcError.PARSE_ERROR
             return

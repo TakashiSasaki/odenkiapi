@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals, print_function
-import json as simplejson
+#import json as simplejson
 from google.appengine.ext import webapp
 from lib.gae import JsonRpcDispatcher
-from lib.json import JsonRpcRequest, JsonRpcResponse
-from model.Hems import Relays, isoToNative
+#from lib.json import JsonRpcRequest, JsonRpcResponse
+from model.Hems import Relays
+from lib.json.JsonRpcResponse import JsonRpcResponse
+from lib.json.JsonRpcRequest import JsonRpcRequest
 
 
 class _Index(webapp.RequestHandler):
@@ -77,113 +79,8 @@ class _Relays(JsonRpcDispatcher):
         jresponse.addResult(l)
 
 
-class _Hello(webapp.RequestHandler):
-    def get(self):
-        request = self.request
-        assert isinstance(request, webapp.Request)
-        _Hello.body = self.request.body
-        _Hello.arguments = self.request.arguments()
-        _Hello.headers = self.request.headers
-
-    def post(self):
-        request = self.request
-        assert isinstance(request, webapp.Request)
-        _Hello.body = self.request.body
-        _Hello.arguments = self.request.arguments()
-        _Hello.headers = self.request.headers
-
-
-maps = [("/api/Relays/[0-9a-zA-Z_]+/[0-9a-zA-Z_]+/[0-9a-zA-Z_]+", _Relays),
-        ("/api/Relays/", _Index)]
-
-import unittest
-import datetime
-
-
-class _TestCase(unittest.TestCase):
-    def setUp(self):
-        import webtest
-
-        maps.append(("/hello", _Hello))
-        app = webapp.WSGIApplication(maps, debug=True)
-        self.testapp = webtest.TestApp(app)
-        from google.appengine.ext import testbed
-
-        self.testbed = testbed.Testbed()
-        self.testbed.activate()
-        self.testbed.init_datastore_v3_stub()
-        self.testbed.init_memcache_stub()
-
-        relays = Relays("product1", "serial1", "module1")
-        relays.setExpectedState("relay111", datetime.datetime.utcnow() + datetime.timedelta(1), False)
-        relays.setExpectedState("relay222", datetime.datetime.utcnow() + datetime.timedelta(1), True)
-
-    def testSucceeded(self):
-        response_before = self.testapp.get("/api/Relays/product1/serial1/module1")
-        json_object_before = simplejson.loads(response_before.body)
-        #print(response_before.body)
-        self.assertFalse(json_object_before["result"][0]["relay111"]["expectedState"])
-        self.assertTrue(json_object_before["result"][0]["relay222"]["expectedState"])
-
-        relays = Relays("product1", "serial1", "module1")
-        relays.setExpectedState("relay111", datetime.datetime.utcnow() + datetime.timedelta(1), True)
-        relays.setExpectedState("relay222", datetime.datetime.utcnow() + datetime.timedelta(1), False)
-        response_after = self.testapp.get("/api/Relays/product1/serial1/module1")
-        json_object_after = simplejson.loads(response_after.body)
-        self.assertTrue(json_object_after["result"][0]["relay111"]["expectedState"])
-        self.assertFalse(json_object_after["result"][0]["relay222"]["expectedState"])
-
-    def testPost(self):
-        iso_string = "2013-06-13T19:31:10+09:00"
-        response = self.testapp.post(b"/api/Relays/product1/serial1/module1",
-                                     {"scheduledDateTime": iso_string,
-                                      "expectedState": True,
-                                      "relayId": "relay5677"})
-        relays = Relays("product1", "serial1", "module1")
-        self.assertEqual(relays["relay5677"].scheduledDateTime, isoToNative(iso_string))
-        self.assertTrue(relays["relay5677"].expectedState)
-
-    def testPostJson(self):
-        iso_string = "2013-06-13T19:41:10+09:00"
-        response = self.testapp.post_json(b"/api/Relays/product1/serial1/module1",
-                                          {"scheduledDateTime": iso_string,
-                                           "expectedState": True,
-                                           "relayId": "relay456"})
-        relays = Relays("product1", "serial1", "module1")
-        print(relays)
-        self.assertEqual(relays["relay456"].scheduledDateTime, isoToNative(iso_string))
-        self.assertTrue(relays["relay456"].expectedState)
-
-
-    def testHelloGet(self):
-        response = self.testapp.get("/hello?a=b&a=c")
-        self.assertEqual(_Hello.body, "")
-        self.assertEqual(_Hello.arguments, ["a"])
-        self.assertEqual(_Hello.headers["Content-Type"], '; charset="utf-8"')
-
-    def testHelloPost(self):
-        response = self.testapp.post(b"/hello?v=b&a=z", {"c": "d"})
-        self.assertEqual(_Hello.body, "c=d")
-        self.assertEqual(_Hello.arguments, ["a", "c", "v"])
-        self.assertEqual(_Hello.headers["Content-Type"], 'application/x-www-form-urlencoded; charset="utf-8"')
-
-    def testHelloPostJson(self):
-        response = self.testapp.post_json(b"/hello?v=b&a=z", {"c": "d", "s": False})
-        self.assertEqual(_Hello.body, '{"c": "d", "s": false}')
-        self.assertEqual(_Hello.arguments, ["a", "v"])
-        self.assertEqual(_Hello.headers["Content-Type"], 'application/json; charset="utf-8"')
-
-    # def testPost(self):
-    #     response = self.testapp.post_json(b"/api/Relays/product1/serial1/module1", {"a": "b"})
-
-    def testDict(self):
-        xx = {"1": "2", "3": "4"}
-        for x, y in xx.iteritems():
-            print(x, y)
-
-    def tearDown(self):
-        self.testbed.deactivate()
-
+paths = [("/api/Relays/[0-9a-zA-Z_]+/[0-9a-zA-Z_]+/[0-9a-zA-Z_]+", _Relays),
+         ("/api/Relays/", _Index)]
 
 if __name__ == "__main__":
     import os
