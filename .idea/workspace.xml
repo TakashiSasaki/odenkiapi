@@ -3,12 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/odenkiapi/newodenki" afterPath="$PROJECT_DIR$/odenkiapi/newodenki" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/odenkiapi/api/OdenkiUser.py" afterPath="$PROJECT_DIR$/odenkiapi/api/OdenkiUser.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/odenkiapi/app.yaml" afterPath="$PROJECT_DIR$/odenkiapi/app.yaml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/odenkiapi/newodenki/js/common.js" afterPath="$PROJECT_DIR$/odenkiapi/newodenki/js/common.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/odenkiapi/newodenki/js/currentOdenkiId.js" afterPath="$PROJECT_DIR$/odenkiapi/newodenki/js/currentOdenkiId.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/odenkiapi/api/test/testOdenkiUser.py" afterPath="$PROJECT_DIR$/odenkiapi/api/test/testOdenkiUser.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/odenkiapi/newodenki/.idea/workspace.xml" afterPath="$PROJECT_DIR$/odenkiapi/newodenki/.idea/workspace.xml" />
     </list>
     <ignored path="odenkiapi.iws" />
@@ -142,7 +136,7 @@
       <file leaf-file-name="OdenkiUser.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/odenkiapi/api/OdenkiUser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="40" selection-start="2641" selection-end="2641" vertical-scroll-proportion="0.73101264">
+            <state line="68" column="40" selection-start="2641" selection-end="2641" vertical-scroll-proportion="1.0179325">
               <folding />
             </state>
           </provider>
@@ -1088,7 +1082,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/odenkiapi/api/OdenkiUser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="40" selection-start="2641" selection-end="2641" vertical-scroll-proportion="0.73101264">
+        <state line="68" column="40" selection-start="2641" selection-end="2641" vertical-scroll-proportion="1.0179325">
           <folding />
         </state>
       </provider>
