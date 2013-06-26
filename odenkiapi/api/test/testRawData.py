@@ -1,10 +1,15 @@
 from __future__ import unicode_literals, print_function
 import unittest
+import os
+
 import webtest
+
 import simplejson
 
 from google.appengine.ext import webapp
 from google.appengine.ext import testbed
+
+import gaesessions
 
 import api.RawData
 import post
@@ -16,8 +21,8 @@ class Recent(unittest.TestCase):
         paths.extend(api.RawData.paths)
         paths.extend(post.paths)
         wsgi_application = webapp.WSGIApplication(paths, debug=True)
-
-        self.testapp = webtest.TestApp(wsgi_application)
+        gaesessions_application = gaesessions.SessionMiddleware(wsgi_application, os.urandom(64))
+        self.testapp = webtest.TestApp(gaesessions_application)
 
         self.testbed = testbed.Testbed()
         self.testbed.activate()
