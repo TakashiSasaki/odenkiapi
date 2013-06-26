@@ -95,8 +95,11 @@ class CurrentOdenkiId(JsonRpcDispatcher):
 
     def POST(self, jrequest, jresponse):
         jresponse.setId()
-        odenki_id = int(jrequest.getValue("currentOdenkiId")[0])
-        odenki_user = OdenkiUser.getByOdenkiId(odenki_id)
+        odenki_id = int(jrequest.getValue("odenkiId")[0])
+        try:
+            odenki_user = OdenkiUser.getByOdenkiId(odenki_id)
+        except EntityNotFound, e:
+            odenki_user = OdenkiUser.createNew()
         assert isinstance(odenki_user, OdenkiUser)
         odenki_user.saveToSession()
         jresponse.setResult(odenki_user)
@@ -105,3 +108,15 @@ class CurrentOdenkiId(JsonRpcDispatcher):
 paths = [("/api/OdenkiUser/SetOdenkiName", SetOdenkiName),
          ("/api/OdenkiUser", OdenkiUserApi),
          ("/api/OdenkiUser/CurrentOdenkiId", CurrentOdenkiId)]
+
+if __name__ == "__main__":
+    from google.appengine.ext import webapp
+    from google.appengine.ext.webapp.util import run_wsgi_app
+    import gaesessions
+
+    wsgi_application = webapp.WSGIApplication(paths, debug=True)
+    import credentials
+
+    gaesessions_application = gaesessions.SessionMiddleware(wsgi_application, credentials.SESSION_SALT)
+
+    run_wsgi_app(gaesessions_application)

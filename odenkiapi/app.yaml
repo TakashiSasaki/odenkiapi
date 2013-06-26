@@ -45,6 +45,9 @@ handlers:
 - url: /api/Relays/.*
   script: api/Relays.py
 
+- url: /api/OdenkiUser/.*
+  script: api/OdenkiUser.py
+
 - url: /favicon.ico
   static_files: image/odenki.png
   upload: image/odenki.png
@@ -58,8 +61,8 @@ handlers:
 - url: /api/outlet/([A-Za-z_]+).*
   script: api/outlet/\1.py
 
-- url: /api/([A-Za-z_]+).*
-  script: api/\1.py
+#- url: /api/([A-Za-z_]+).*
+#  script: api/\1.py
 
 - url: /record/([A-Za-z_]+).*
   script: record/\1.py

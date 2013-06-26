@@ -48,7 +48,7 @@ class TestCase(unittest.TestCase):
         odenki_user = model.OdenkiUser.OdenkiUser.getByOdenkiId(odenki_id)
         self.assertIsInstance(odenki_user, model.OdenkiUser.OdenkiUser)
 
-        response = self.post(b"/api/OdenkiUser/CurrentOdenkiId", {"currentOdenkiId": odenki_id})
+        response = self.post(b"/api/OdenkiUser/CurrentOdenkiId", {"odenkiId": odenki_id})
         json_object = simplejson.loads(response.body)
         self.assertEqual(1, json_object["result"]["odenkiId"])
         response = self.get(b"/api/OdenkiUser/CurrentOdenkiId")
