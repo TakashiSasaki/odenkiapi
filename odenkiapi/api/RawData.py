@@ -5,9 +5,10 @@ from datetime import datetime, timedelta
 from google.appengine.api import memcache
 
 from lib.gae import JsonRpcDispatcher
-from lib.json import JsonRpcRequest, JsonRpcResponse
 from model.RawDataNdb import RawData, RawDataColumns
 from model.MetadataNdb import Metadata
+from lib.json.JsonRpcRequest import JsonRpcRequest
+from lib.json.JsonRpcResponse import JsonRpcResponse
 
 
 class _Recent(JsonRpcDispatcher):
@@ -24,7 +25,7 @@ class _Recent(JsonRpcDispatcher):
         else:
             jresponse.setExtraValue("memcache", "missed and reloaded")
             keys = RawData.fetchRecent()
-            client.set(self.MEMCACHE_KEY, keys, time=20)
+            client.set(self.MEMCACHE_KEY, keys, time=70)
 
         for key in keys:
             raw_data = key.get()
@@ -154,12 +155,7 @@ class _OneHour(JsonRpcDispatcher):
         jresponse.setColumns(RawDataColumns())
 
 
-if __name__ == "__main__":
-    mapping = []
-    mapping.append(("/api/RawData/[0-9]+/[0-9]+/[0-9]+/[0-9]+", _OneHour))
-    mapping.append(("/api/RawData/[0-9]+/[0-9]+/[0-9]+", _OneDay))
-    mapping.append(('/api/RawData/[0-9]+/[0-9]+', _Range))
-    mapping.append(("/api/RawData", _Recent))
-    from lib.gae import run_wsgi_app
-
-    run_wsgi_app(mapping)
+paths = [("/api/RawData/[0-9]+/[0-9]+/[0-9]+/[0-9]+", _OneHour),
+         ("/api/RawData/[0-9]+/[0-9]+/[0-9]+", _OneDay),
+         ('/api/RawData/[0-9]+/[0-9]+', _Range),
+         ("/api/RawData", _Recent)]
