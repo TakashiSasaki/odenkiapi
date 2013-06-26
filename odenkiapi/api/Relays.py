@@ -87,9 +87,8 @@ if __name__ == "__main__":
 
     if os.environ.get("APPENGINE_RUNTIME"):
         from google.appengine.ext.webapp.util import run_wsgi_app
-        from google.appengine.ext.webapp import WSGIApplication
 
-        wsgi_application = WSGIApplication(maps, debug=True)
+        wsgi_application = webapp.WSGIApplication(paths, debug=True)
         run_wsgi_app(wsgi_application)
     else:
         import unittest

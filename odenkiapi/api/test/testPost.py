@@ -2,6 +2,8 @@ from __future__ import unicode_literals, print_function
 import unittest
 import json
 
+from google.appengine.ext import webapp
+
 import post
 from model.DataNdb import Data
 
@@ -64,6 +66,49 @@ class _TestCase(unittest.TestCase):
         for key in keys:
             key.delete_async()
         self.testbed.deactivate()
+
+
+class _MyTest(unittest.TestCase):
+    def setUp(self):
+        unittest.TestCase.setUp(self)
+        try:
+            import webtest
+        except ImportError:
+            import setuptools.command.easy_install as easy_install
+
+            easy_install.main(["WebTest"])
+            exit()
+
+        wsgi_application = webapp.WSGIApplication(post.paths)
+        self.test_app = webtest.TestApp(wsgi_application)
+        from google.appengine.ext.testbed import Testbed
+
+        self.testbed = Testbed()
+        self.testbed.activate()
+        self.testbed.init_datastore_v3_stub()
+        self.testbed.init_memcache_stub()
+
+    def tearDown(self):
+        self.testbed.deactivate()
+        unittest.TestCase.tearDown(self)
+
+    def testGet(self):
+        response = self.test_app.get("/post")
+        import webtest
+
+        self.assertIsInstance(response, webtest.TestResponse)
+        self.assertEqual(response.status, "200 OK")
+        self.assertEqual(response.headers["Content-Type"], 'text/plain')
+
+    def testGet2(self):
+        TEST_QUERY = "a=b&c=d&e=f"
+        response = self.test_app.get("/post?" + TEST_QUERY)
+        import webtest
+
+        self.assertIsInstance(response, webtest.TestResponse)
+        self.assertEqual(response.status, "200 OK")
+        self.assertEqual(response.headers["Content-Type"], 'text/plain')
+        print(response.body)
 
 
 if __name__ == "__main__":
