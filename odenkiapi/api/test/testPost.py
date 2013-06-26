@@ -33,7 +33,9 @@ class _TestCase(unittest.TestCase):
         keys = Data.fetchByField("a")
         self.assertEqual(len(keys), 0)
         response = self.testapp.get("/post?a=bb&c=dd&a=x")
-        self.assertEqual(json.loads(response.body), [[4, "a", "bb"], [5, "a", "x"], [6, "c", "dd"]])
+        self.assertEqual(json.loads(response.body), [{"dataId": 4, "field": "a", "string": "bb"},
+                                                     {"dataId": 5, "field": "a", "string": "x"},
+                                                     {"dataId": 6, "field": "c", "string": "dd"}])
         keys = Data.fetchByField("a")
         self.assertEqual(len(keys), 2)
         self.assertTrue(keys[0].get().field == "a")
