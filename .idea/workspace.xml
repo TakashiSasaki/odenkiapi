@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8aa98f9d-4941-437a-a531-eb13d8cc9f2d" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\sasaki\Documents\GitHub\odenkiapi\odenkiapi\.project" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sasaki\Documents\GitHub\odenkiapi\odenkiapi\.pydevproject" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\sasaki\Documents\GitHub\odenkiapi\odenkiapi\sstTest.py" afterPath="$PROJECT_DIR$/odenkiapi/api/test/testSst.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Google_App_Engine_SDK.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Google_App_Engine_SDK.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/odenkiapi.iml" afterPath="$PROJECT_DIR$/.idea/odenkiapi.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="odenkiapi.iws" />
@@ -186,7 +181,7 @@
       <file leaf-file-name="testSst.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/odenkiapi/api/test/testSst.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="0" selection-start="284" selection-end="284" vertical-scroll-proportion="0.24332061">
+            <state line="15" column="0" selection-start="284" selection-end="284" vertical-scroll-proportion="0.24401914">
               <folding />
             </state>
           </provider>
@@ -266,8 +261,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="58" />
-    <option name="y" value="138" />
+    <option name="x" value="57" />
+    <option name="y" value="128" />
     <option name="width" value="2307" />
     <option name="height" value="1216" />
   </component>
@@ -442,7 +437,7 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/odenkiapi" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -865,7 +860,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="58" y="138" width="2307" height="1216" extended-state="0" />
+    <frame x="57" y="128" width="2307" height="1216" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297414" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -873,7 +868,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24960254" sideWeight="0.76651305" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23636363" sideWeight="0.6751152" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.3248848" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="2608" y="954" width="1185" height="423" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.3248848" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="2608" y="954" width="1185" height="423" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32721382" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.23348695" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="2565" y="431" width="1256" height="479" />
@@ -1073,7 +1068,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/odenkiapi/api/test/testSst.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="284" selection-end="284" vertical-scroll-proportion="0.24332061">
+        <state line="15" column="0" selection-start="284" selection-end="284" vertical-scroll-proportion="0.24401914">
           <folding />
         </state>
       </provider>
