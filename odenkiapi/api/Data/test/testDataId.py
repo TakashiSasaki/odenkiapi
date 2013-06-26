@@ -29,7 +29,7 @@ class _TestCase(unittest.TestCase):
         self.assertEqual(data_id, 1)
         response = self.testapp.get("/api/Data/dataId/%s" % data_id)
         j = simplejson.loads(response.body)
-        print(j)
+        #print(j)
         self.assertEqual(j["result"][0]["field"], "f1")
         self.assertEqual(j["result"][0]["string"], "s1")
         self.assertEqual(j["result"][0]["dataId"], 1)
@@ -39,6 +39,7 @@ class _TestCase(unittest.TestCase):
         data_id = d.dataId
         self.assertEqual(data_id, 1)
         response = self.testapp.get("/api/Data/dataId/%s" % (data_id + 1), status=500)
+        #print(response.body)
         json_object = simplejson.loads(response.body)
         self.assertEqual(json_object["error"]["code"], -32099)
         self.assertIsNone(json_object["error"]["data"])

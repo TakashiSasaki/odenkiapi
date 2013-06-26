@@ -25,7 +25,7 @@
       <root url="file://C:/Program Files (x86)/Google/google_appengine/lib/setuptools-0.6c11" />
       <root url="file://C:/Program Files (x86)/Google/google_appengine/lib/simplejson" />
       <root url="file://C:/Program Files (x86)/Google/google_appengine/lib/sqlcmd" />
-      <root url="file://C:/Program Files (x86)/Google/google_appengine/lib/django-1.2" />
+      <root url="file://C:/Program Files (x86)/Google/google_appengine/lib/django_1_2" />
       <root url="file://C:/Program Files (x86)/Google/google_appengine/lib/webapp2-2.5.2" />
       <root url="file://C:/Program Files (x86)/Google/google_appengine/lib/webob-1.2.3" />
       <root url="file://C:/Program Files (x86)/Google/google_appengine/lib/yaml-3.10" />

@@ -77,13 +77,15 @@ class JsonRpcDispatcher(RequestHandler):
             if x:
                 logging.debug("dispatched method need not return an object of JsonRpcResponse.")
         except JsonRpcException, e:
+            json_rpc_response.setError(e.code, e.message, e.data, e.__class__.__name__)
+        except Exception, e:
             from sys import exc_info
 
             (etype, value, tb) = exc_info()
             from traceback import print_exception
 
             print_exception(etype, value, tb)
-            json_rpc_response.setError(e.code, e.message, e.data, e.__class__.__name__)
+
 
         # if self._inAdminMode():
         #     if json_rpc_response.hasRedirectTarget():
@@ -135,12 +137,12 @@ class JsonRpcDispatcher(RequestHandler):
         if json_rpc_response.getRedirectTarget():
             assert isinstance(self.response, Response)
             self.redirect(json_rpc_response.getRedirectTarget())
-            debug("redirecting to %s" % json_rpc_response.getRedirectTarget())
+            #debug("redirecting to %s" % json_rpc_response.getRedirectTarget())
             return
 
         # notification has no id
         if json_rpc_response.getId() is None:
-            debug("JSON-RPC notification")
+            #debug("JSON-RPC notification")
             if not json_rpc_response.has_key("error") and not json_rpc_response.has_key("result"):
                 # http://www.simple-is-better.org/json-rpc/jsonrpc20-over-http.html
                 self.response.set_status(204) # No content
@@ -150,7 +152,7 @@ class JsonRpcDispatcher(RequestHandler):
                                        "Response for notification should have neither result nor error.")
 
         if json_rpc_response.has_key("error"):
-            debug("JSON RPC response with error.")
+            #debug("JSON RPC response with error.")
             #assert  json_rpc_response.getResult() is None
             self.response.content_type = "application/json"
             json_rpc_error_code = json_rpc_response.getErrorCode()
